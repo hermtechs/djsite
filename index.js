@@ -3,29 +3,17 @@ const humburger = document.getElementById('nav-toggle-checkbox');
 const navSpan = document.querySelector('.nav-span');
 const fullScreenOverlay = document.querySelector('.full-screen-overlay');
 const navigation = document.getElementsByTagName('nav')[0];
+const closePlayer = document.querySelector('#close-player');
+const audioPlayer = document.querySelector('.audio-player');
 
 humburger.addEventListener('click', ()=>{
- if(navSpan.style.transform === 'rotate(20deg)'){
+ if(navSpan.style.transform === 'rotate(15deg)'){
   navSpan.style.transform = 'rotate(0deg)'
  }
  else{
-  navSpan.style.transform = 'rotate(20deg)'
+  navSpan.style.transform = 'rotate(15deg)'
  }
-
-
-//  fullScreenOverlay.style.visibility = 'visible'
-
  })
-//  fullScreenOverlay.addEventListener('click', ()=>{
-//   navSpan.style.transform = 'rotate(0deg)'
-//   if(navigation.style.transform=='scale(1,0)'){
-//     navigation.style.transform='scale(0,1)'
-//   }
-//   else{
-//     navigation.style.transform='scale(1,0)'
-//   }
- 
-//  })
 
 
 // VIDEO PLAYERS 
@@ -74,3 +62,11 @@ function VideoPlayerController(event) {
       (videoProgressValue / videoDuration) * 100 + "%";
   }
 }
+//AUDIO PLAYER
+  //close player
+closePlayer.addEventListener('click', ()=>{
+  audioPlayer.style.transform = 'scale(1,0)';
+  setTimeout(()=>{
+    audioPlayer.style.display = 'none'
+  },500)
+})

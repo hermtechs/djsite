@@ -11,7 +11,6 @@
 </head>
 <body>
     <header>
-        
       <input type="checkbox" id="nav-toggle-checkbox" class="nav-toggle">
             
         <a href="#" class="logo"> Dj N<i class="fab fa-napster">V</i></a>
@@ -61,12 +60,16 @@
      <button class="play-btn"></button>
     <div class="video-progress-bar"></div>
    </div>
+
    </div>
    <div class="video video-player">
     <video src="./videos/production ID_4089575.mp4" id="video-element"></video>
     <div class="controls-video">
         <button class="play-btn"></button>
         <div class="video-progress-bar"></div> 
+    </div>
+    <div class="video-description">
+     
     </div>
     </div>
     <div class="video video-player">
@@ -93,26 +96,56 @@
         <img src="./images/Spotify-White-Logo.wine.svg" alt="">
     </a>   
     </div>
-    <div class="music-player">
+   
+    <!-- <div class="music-player">
       <div class="song-image">
         <i class="fas fa-headphones-alt fa-2x"></i>
       </div> 
       <h3 class="song-title">Midnight drum</h3>
       <h4>Nattalie Rise</h4>
       <div class="controls-audio">
-          <div class="prev-btn"><i class="fas fa-backward fa-lg"></i> </div>
-          <div class="play-btn"> <i class="fas fa-play fa-lg "></i> </div>
-          <div class="next-btn"> <i class="fas fa-forward fa-lg"></i> </div>
+          <div class="audio-prev-btn"><i class="fas fa-backward fa-lg"></i> </div>
+          <div class="audio-play-btn"> <i class="fas fa-play fa-lg "></i> </div>
+          <div class="audio-next-btn"> <i class="fas fa-forward fa-lg"></i> </div>
       </div>
       <div class="progress-bar">
           <div class="mute-sound-btn"><i class="fas fa-volume-up"></i></div>
           <div class="song-progress">
-          <progress value="20%" ></progress>    
+          <input type="range" value="20%" class="song-progress-bar">    
           </div>
       </div>
-    </div>
+    </div> -->
 </section>
+<section class='music-audio-sections'>
+<article class="music-audios">
+    <div class="music-card">
+        <img src="./images/errow.webp" alt="">
+        <h5> moonlight-rmx-2020 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
 
+    <div class="music-card">
+        <img src="./images/gear.webp" alt="">
+        <h5> moonlight-rmx-2020 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+
+    <div class="music-card">
+        <img src="./images/errow.webp" alt="">
+        <h5> moonlight-rmx-2020 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+
+    <div class="music-card">
+        <img src="./images/flower-design.webp" alt="">
+        <h5> moonlight-rmx-2020 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+</article>
+
+</section> 
+<button class="prev-card">Back</button>
+<button class="next-card">Next</button>
 <!-- <section class="audio-section">
 <div class="section-titles">
    <h4 class="title2 sub-heading">AUDIO MUSIC</h4>
@@ -248,7 +281,24 @@
          </a>
     </div>
 </section> 
-
+<div class="audio-player">
+    <div class="audio-player-header">
+      <h6>Audio Player</h6>
+      <i class="far fa-times-circle" id="close-player"></i>
+    </div>
+    <div class="audio-ctrls"> 
+      <div class="controls-audio">
+          <div class="audio-prev-btn"><i class="fas fa-backward"></i> </div>
+          <div class="audio-play-btn"> <i class="fas fa-play"></i> </div>
+          <div class="audio-next-btn"> <i class="fas fa-forward"></i> </div>
+       <div class="progress-bar">
+          <div class="mute-sound-btn"><i class="fas fa-volume-up"></i></div>
+          <input type="range" value="20%" class="song-progress-bar">    
+      </div>
+      </div>
+    </div> 
+    <p class="song-title">Ella Mai trip-2021</p> 
+  </div>
    <footer>
        <h5 class="copyrite">&copy; Dj Nav. All rights reserved. 
            designed  by <a href="http://herbertm.com">Herbert</a></h5>
@@ -260,6 +310,7 @@
     <a href="#"> <i class="fab fa-instagram"></i></a>
 </div>
 </footer>
+
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
