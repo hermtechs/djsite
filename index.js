@@ -5,13 +5,18 @@ const fullScreenOverlay = document.querySelector('.full-screen-overlay');
 const navigation = document.getElementsByTagName('nav')[0];
 const closePlayer = document.querySelector('#close-player');
 const audioPlayer = document.querySelector('.audio-player');
+const scrollLeftBtn = document.querySelector('.scroll-left');
+const scrollRightBtn = document.querySelector('.scroll-right');
+const albumsContainer = document.querySelector('.music-audios')
+const eachAudioAlbum = document.querySelectorAll('.music-card');
 
+// NAVIGATION MENU
 humburger.addEventListener('click', ()=>{
- if(navSpan.style.transform === 'rotate(15deg)'){
+ if(navSpan.style.transform === 'rotate(5deg)'){
   navSpan.style.transform = 'rotate(0deg)'
  }
  else{
-  navSpan.style.transform = 'rotate(15deg)'
+  navSpan.style.transform = 'rotate(5deg)'
  }
  })
 
@@ -65,8 +70,24 @@ function VideoPlayerController(event) {
 //AUDIO PLAYER
   //close player
 closePlayer.addEventListener('click', ()=>{
-  audioPlayer.style.transform = 'scale(1,0)';
+  audioPlayer.style.transform = 'scale(1,0)'; 
   setTimeout(()=>{
     audioPlayer.style.display = 'none'
   },500)
 })
+
+//MUSIC ALBUMS
+/*** scroll right and left buttons  *** */
+const albumSize = eachAudioAlbum[0].clientWidth;
+console.log(albumSize);
+
+scrollLeftBtn.addEventListener('click', (()=>{
+  albumsContainer.scrollLeft -= albumSize + 20;
+}));
+
+scrollRightBtn.addEventListener('click', (()=>{
+  albumsContainer.scrollLeft += albumSize + 20;
+  scrollLeftBtn.style.display = 'block';
+}))
+
+

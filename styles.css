@@ -2,7 +2,9 @@
 :root {
   --background-clr-nav: blue;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -312,12 +314,15 @@ video {
 .music-audio-sections{
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-top: 1.5rem;
- /* overflow: hidden; */
-  
+  position: relative;
+  background: pink;
+ position: relative;
 }
 .music-audios{
  display: flex;
+ overflow: hidden;
 }
 .music-card{
   padding: .6rem;
@@ -333,6 +338,22 @@ video {
 .music-card .play-btn-card{
 position: relative;
 left: 10em;
+}
+
+.scroll-left{
+  font-size: 2rem;
+  color: darkblue;
+  position: absolute;
+  z-index: 4000;
+  left: 2%;
+  display: none;
+}
+.scroll-right{
+  font-size: 2rem;
+  color: darkblue;
+  position: absolute;
+  z-index: 4000;
+  right: 4%;
 }
 
 .section-titles {
