@@ -12,11 +12,11 @@ const eachAudioAlbum = document.querySelectorAll('.music-card');
 
 // NAVIGATION MENU
 humburger.addEventListener('click', ()=>{
- if(navSpan.style.transform === 'rotate(5deg)'){
+ if(navSpan.style.transform === 'rotate(8deg)'){
   navSpan.style.transform = 'rotate(0deg)'
  }
  else{
-  navSpan.style.transform = 'rotate(5deg)'
+  navSpan.style.transform = 'rotate(8deg)'
  }
  })
 
@@ -31,8 +31,7 @@ playPauseBtn.forEach((btn) => {
 });
 function VideoPlayerController(event) {
   const ClickedPlayBtn =
-    event.target; /*getting 
-                                specific playBtn*/
+    event.target; /*getting specifically clicked playBtn*/
   const VideoToBePlayedContainer = ClickedPlayBtn.parentElement.parentElement;
 
   //getting specific video to be played
