@@ -283,7 +283,7 @@ video {
   /* margin-bottom: -15rem; */
   transition: 250ms;
   transform-origin: bottom;
-
+  display: none;
 }
 .audio-player-header{
   display: flex;
@@ -313,6 +313,11 @@ video {
 .song-title{
   text-align: center;
   padding-top: .1rem;
+}
+.thumbnail{
+  max-width: 100px;
+  margin-right: 1em;
+  border-radius: .5em;
 }
 /* ALBUMS SECTION */
 .albums-titles{background: rgb(204, 204, 235);}

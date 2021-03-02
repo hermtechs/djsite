@@ -103,41 +103,41 @@
     <i class="fas fa-arrow-circle-right scroll-right"></i>
 <article class="music-audios">
     <div class="music-card">
-        <img src="./images/errow.webp" alt="">
+        <img src="./images/errow.webp" alt="" class="album-img">
+        <h5 class="music-title"> sunshine-rmx-2021 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+
+    <div class="music-card">
+        <img src="./images/gear.webp" alt="" class="album-img">
+        <h5 class="music-title"> morning cool-rmx-2021 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+
+    <div class="music-card">
+        <img src="./images/errow.webp" alt="" class="album-img">
+        <h5 class="music-title"> train after train-2021 </h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+    <div class="music-card">
+        <img src="./images/gear.webp" alt="" class="album-img">
+        <h5 class="music-title"> super electronic -2021</h5>
+        <i class="fas fa-play-circle play-btn-card"></i>
+    </div>
+    <div class="music-card">
+        <img src="./images/errow.webp" alt="" class="album-img">
         <h5> moonlight-rmx-2020 </h5>
         <i class="fas fa-play-circle play-btn-card"></i>
     </div>
 
     <div class="music-card">
-        <img src="./images/gear.webp" alt="">
+        <img src="./images/flower-design.webp" alt="" class="album-img">
         <h5> moonlight-rmx-2020 </h5>
         <i class="fas fa-play-circle play-btn-card"></i>
     </div>
 
     <div class="music-card">
-        <img src="./images/errow.webp" alt="">
-        <h5> moonlight-rmx-2020 </h5>
-        <i class="fas fa-play-circle play-btn-card"></i>
-    </div>
-    <div class="music-card">
-        <img src="./images/gear.webp" alt="">
-        <h5> moonlight-rmx-2020 </h5>
-        <i class="fas fa-play-circle play-btn-card"></i>
-    </div>
-    <div class="music-card">
-        <img src="./images/errow.webp" alt="">
-        <h5> moonlight-rmx-2020 </h5>
-        <i class="fas fa-play-circle play-btn-card"></i>
-    </div>
-
-    <div class="music-card">
-        <img src="./images/flower-design.webp" alt="">
-        <h5> moonlight-rmx-2020 </h5>
-        <i class="fas fa-play-circle play-btn-card"></i>
-    </div>
-
-    <div class="music-card">
-        <img src="./images/gear.webp" alt="">
+        <img src="./images/gear.webp" alt="" class="album-img">
         <h5> moonlight-rmx-2020 </h5>
         <i class="fas fa-play-circle play-btn-card"></i>
     </div>
@@ -262,13 +262,15 @@
       <h6>Audio Player</h6>
       <i class="far fa-times-circle" id="close-player"></i>
     </div>
+    <audio src="./audios/" id="audio-element"></audio>
     <div class="audio-ctrls"> 
+        <img src="./song-images/IT-Alan Walker - Sing Me To Sleep   Faded.jpg" alt="" class="thumbnail">
       <div class="controls-audio">
-          <div class="audio-prev-btn"><i class="fas fa-backward"></i> </div>
-          <div class="audio-play-btn"> <i class="fas fa-play"></i> </div>
-          <div class="audio-next-btn"> <i class="fas fa-forward"></i> </div>
+        <i class="fas fa-backward audio-prev-btn"></i> 
+        <i class="fas fa-play audio-play-btn"></i> 
+        <i class="fas fa-forward audio-next-btn"></i> 
        <div class="progress-bar">
-          <div class="mute-sound-btn"><i class="fas fa-volume-up"></i></div>
+        <i class="fas fa-volume-up mute-sound-btn"></i>
           <input type="range" value="20%" class="song-progress-bar">    
       </div>
       </div>

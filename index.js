@@ -9,6 +9,11 @@ const scrollLeftBtn = document.querySelector('.scroll-left');
 const scrollRightBtn = document.querySelector('.scroll-right');
 const albumsContainer = document.querySelector('.music-audios')
 const eachAudioAlbum = document.querySelectorAll('.music-card');
+//variables for the Audio player
+const audioElement = document.querySelector('#audio-element')
+const audioPlayBtn = document.querySelector('.audio-play-btn')
+//variables for music albums/cards
+const albumPlayBtn = document.querySelectorAll('.play-btn-card');
 
 // NAVIGATION MENU
 humburger.addEventListener('click', ()=>{
@@ -19,7 +24,6 @@ humburger.addEventListener('click', ()=>{
   navSpan.style.transform = 'rotate(8deg)'
  }
  })
-
 
 // VIDEO PLAYERS 
 const playPauseBtn = document.querySelectorAll(".play-btn");
@@ -73,13 +77,13 @@ closePlayer.addEventListener('click', ()=>{
   setTimeout(()=>{
     audioPlayer.style.display = 'none'
   },500)
+  audioElement.pause();
 })
 
 //MUSIC ALBUMS
 /*** scroll right and left buttons  *** */
 const albumSize = eachAudioAlbum[0].clientWidth;
-console.log(albumSize);
-
+// console.log(albumSize);
 scrollLeftBtn.addEventListener('click', (()=>{
   albumsContainer.scrollLeft -= albumSize + 20;
 }));
@@ -89,4 +93,45 @@ scrollRightBtn.addEventListener('click', (()=>{
   scrollLeftBtn.style.display = 'block';
 }))
 
+//AUDIO PLAYER
+// console.log(audioPlayBtn)
+audioPlayBtn.addEventListener('click', playAudio);
+function playAudio(){
+ if(audioElement.paused){ 
+ audioElement.play();
+ audioPlayBtn.classList.replace('fa-play', 'fa-pause') //change playbtn to pausebtn
+ }
+ else{
+   audioElement.pause();
+   audioPlayBtn.classList.replace('fa-pause', 'fa-play')
+ }
+}
+//Update Audio player song image, title, and song to currently playing song
+//looping through all album playBtns
+albumPlayBtn.forEach(playBtn=>{
+  playBtn.addEventListener('click',UpdateAudioPlayer)
+})
+function UpdateAudioPlayer(event){
+  let specificClickedPlayBtn = event.target;
+  const container = specificClickedPlayBtn.parentElement;
+  // console.log(container)
+  const songTitle = container.querySelector('.music-title').innerText;
+  // console.log(songTitle);
+  const songImgUrl = container.querySelector('.album-img').src;
+  
+  //Changing currently playing Song image to clicked album image
+  const AudioThumbnail = document.querySelector('.thumbnail');
+  const currentSongTitle = document.querySelector('.song-title');
+  AudioThumbnail.src = songImgUrl;
+  currentSongTitle.innerText = songTitle;
 
+  //Generating a Src for the AudioElement
+   audioElement.setAttribute('src', `./audios/${songTitle}.mp3`)
+  // audioElement.src = SongUrl 
+  console.log(audioElement.src)
+  
+  playAudio();
+
+    audioPlayer.style.display = 'block';
+  
+}
