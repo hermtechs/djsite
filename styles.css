@@ -270,7 +270,7 @@ video {
 .audio-player{
   padding: 1rem;
   position: sticky;
-  background: #eee;
+  background: rgb(204, 204, 235);
   top: 0.1;
   left: 0;
   right: 0;
@@ -284,6 +284,7 @@ video {
   transition: 200ms ease-in-out;
   transform-origin: bottom;
   display: none;
+  color: rgb(49, 49, 172);
 }
 .audio-player-header{
   display: flex;
@@ -296,7 +297,7 @@ video {
 }
 .controls-audio{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .controls-audio>*{
@@ -305,8 +306,8 @@ video {
 .progress-bar{
   display: flex;
   align-items: center;
-  /* margin-left: 2rem; */
-  justify-content: center;
+  margin-left: 2rem;
+  justify-content: space-around;
   padding-top: .5em;
 }
 .progress-bar input{
