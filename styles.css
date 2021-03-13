@@ -281,7 +281,7 @@ video {
   border-top: 1px solid blue;
   margin-top: 0.5rem;
   /* margin-bottom: -15rem; */
-  transition: 250ms;
+  transition: 200ms ease-in-out;
   transform-origin: bottom;
   display: none;
 }
@@ -305,7 +305,12 @@ video {
 .progress-bar{
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
+  justify-content: center;
+  padding-top: .5em;
+}
+.progress-bar input{
+  max-width: 100%;
 }
 .progress-bar>*{
   padding-right: 0.8rem;
@@ -331,7 +336,10 @@ video {
   /* background: rgb(217, 217, 235); */
   position: relative;
   box-shadow:1px inset #000 ;
+  padding-left: 1.5rem;
+  padding-right: 1.2rem;
 }
+
 .music-audios{
  display: flex;
  overflow: hidden;

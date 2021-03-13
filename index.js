@@ -1,4 +1,3 @@
-//Rotating the humburger menu on  Click
 const humburger = document.getElementById('nav-toggle-checkbox');
 const navSpan = document.querySelector('.nav-span');
 const fullScreenOverlay = document.querySelector('.full-screen-overlay');
@@ -16,6 +15,7 @@ const audioPlayBtn = document.querySelector('.audio-play-btn')
 const albumPlayBtn = document.querySelectorAll('.play-btn-card');
 
 // NAVIGATION MENU
+//Rotating the humburger menu on  Click
 humburger.addEventListener('click', ()=>{
  if(navSpan.style.transform === 'rotate(8deg)'){
   navSpan.style.transform = 'rotate(0deg)'
@@ -27,7 +27,6 @@ humburger.addEventListener('click', ()=>{
 
 // VIDEO PLAYERS 
 const playPauseBtn = document.querySelectorAll(".play-btn");
-
 //ENABLING THE VIDEOS TO BE PLAYED AND PAUSED
 //getting play-pause btns for each video
 playPauseBtn.forEach((btn) => {
@@ -67,7 +66,7 @@ function VideoPlayerController(event) {
 
     //   setting the video according to currentTime
     specificVideoProgressBar.style.width =
-      (videoProgressValue / videoDuration) * 100 + "%";
+     (videoProgressValue / videoDuration) * 100 + "%";
   }
 }
 //AUDIO PLAYER
@@ -78,6 +77,7 @@ closePlayer.addEventListener('click', ()=>{
     audioPlayer.style.display = 'none'
   },500)
   audioElement.pause();
+  // audioPlayer.style.display = 'none'; 
 })
 
 //MUSIC ALBUMS
@@ -95,6 +95,8 @@ scrollRightBtn.addEventListener('click', (()=>{
 
 //AUDIO PLAYER
 // console.log(audioPlayBtn)
+audioPlayer.style.display = 'none';
+
 audioPlayBtn.addEventListener('click', playAudio);
 function playAudio(){
  if(audioElement.paused){ 
@@ -103,7 +105,7 @@ function playAudio(){
  }
  else{
    audioElement.pause();
-   audioPlayBtn.classList.replace('fa-pause', 'fa-play')
+   audioPlayBtn.classList.replace('fa-pause', 'fa-play') 
  }
 }
 //Update Audio player song image, title, and song to currently playing song
@@ -114,9 +116,7 @@ albumPlayBtn.forEach(playBtn=>{
 function UpdateAudioPlayer(event){
   let specificClickedPlayBtn = event.target;
   const container = specificClickedPlayBtn.parentElement;
-  // console.log(container)
   const songTitle = container.querySelector('.music-title').innerText;
-  // console.log(songTitle);
   const songImgUrl = container.querySelector('.album-img').src;
   
   //Changing currently playing Song image to clicked album image
@@ -128,10 +128,8 @@ function UpdateAudioPlayer(event){
   //Generating a Src for the AudioElement
    audioElement.setAttribute('src', `./audios/${songTitle}.mp3`)
   // audioElement.src = SongUrl 
-  console.log(audioElement.src)
-  
+  // console.log(audioElement.src)
   playAudio();
-
-    audioPlayer.style.display = 'block';
-  
+  audioPlayer.style.display = 'block'; 
+  audioPlayer.style.transform = 'scale(1,1)'; 
 }
