@@ -95,7 +95,7 @@ scrollRightBtn.addEventListener('click', (()=>{
 
 //AUDIO PLAYER
 // console.log(audioPlayBtn)
-audioPlayer.style.display = 'none';
+// audioPlayer.style.display = 'none';
 
 audioPlayBtn.addEventListener('click', playAudio);
 function playAudio(){
@@ -133,3 +133,59 @@ function UpdateAudioPlayer(event){
   audioPlayer.style.display = 'block'; 
   audioPlayer.style.transform = 'scale(1,1)'; 
 }
+let playList = [
+  {
+    imgUrl:'images/errow.webp',
+    songSrc:'audios/sunshine-rmx-2021.mp3',
+    Title:'sunshine-rmx-2021'
+  },
+  {
+    imgUrl:'images/gear.webp',
+    songSrc:'audios/morning cool-rmx-2021.mp3',
+    Title:'morning cool-rmx-2021'
+  },
+  {
+    imgUrl:'images/errow.webp',
+    songSrc:'audios/sunshine-rmx-2021.mp3',
+    Title:'rmx-2021'
+  }
+]
+
+const AudioNextBtn = document.querySelector('.audio-next-btn')
+const AudioPrevBtn = document.querySelector('.audio-prev-btn')
+const songImg = document.querySelector('.thumbnail')
+const songTitle = document.querySelector('.song-title')
+
+//play next song
+AudioNextBtn.addEventListener('click', PlayNextSong)
+var counter = -1
+
+function PlayNextSong(){  
+counter++; 
+if(counter<playList.length){
+audioElement.src = playList[counter].songSrc;
+songTitle.innerText = playList[counter].Title;
+songImg.src = playList[counter].imgUrl;
+audioElement.play();
+audioPlayBtn.classList.replace('fa-play', 'fa-pause')
+}
+else if(counter>=playList.length){
+  counter = playList.length;  //resetting counter to stay in range of number of songs
+}
+}
+//play previous song
+AudioPrevBtn.addEventListener('click', playPrevSong)  
+
+function playPrevSong(){
+if(counter>=1){
+  counter-=1;  
+console.log(counter);  
+audioElement.src = playList[counter].songSrc;
+songTitle.innerText = playList[counter].Title;
+songImg.src = playList[counter].imgUrl;
+audioElement.play();
+audioPlayBtn.classList.replace('fa-play', 'fa-pause')
+}
+}
+//automatically play next song
+audioElement.onended = ()=> {PlayNextSong()}

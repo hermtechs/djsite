@@ -283,7 +283,7 @@ video {
   /* margin-bottom: -15rem; */
   transition: 200ms ease-in-out;
   transform-origin: bottom;
-  display: none;
+  /* display: none; */
   color: rgb(49, 49, 172);
 }
 .audio-player-header{
@@ -302,6 +302,7 @@ video {
 }
 .controls-audio>*{
   margin-right: 1.4rem;
+  cursor: pointer;
 }
 .progress-bar{
   display: flex;
@@ -321,9 +322,9 @@ video {
   padding-top: .1rem;
 }
 .thumbnail{
-  max-width: 100px;
+  max-width: 50px;
   margin-right: 1em;
-  border-radius: .5em;
+  border-radius: .2em;
 }
 /* ALBUMS SECTION */
 .albums-titles{background: rgb(204, 204, 235);}
