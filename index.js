@@ -11,6 +11,7 @@ const eachAudioAlbum = document.querySelectorAll('.music-card');
 //variables for the Audio player
 const audioElement = document.querySelector('#audio-element')
 const audioPlayBtn = document.querySelector('.audio-play-btn')
+const audioSlider = document.querySelector('#audio-slider')
 //variables for music albums/cards
 const albumPlayBtn = document.querySelectorAll('.play-btn-card');
 
@@ -189,3 +190,12 @@ audioPlayBtn.classList.replace('fa-play', 'fa-pause')
 }
 //automatically play next song
 audioElement.onended = ()=> {PlayNextSong()}
+
+//Sliding through the song
+audioElement.addEventListener('timeupdate', ()=>{
+  const songDuration = audioElement.duration;
+  let currentSongTime = audioElement.currentTime;
+
+  audioSlider.value = (currentSongTime / songDuration)*100 + "%";
+  currentSongTime += audioSlider.value;
+})

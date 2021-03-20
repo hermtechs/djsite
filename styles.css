@@ -306,13 +306,28 @@ video {
 }
 .progress-bar{
   display: flex;
-  align-items: center;
-  margin-left: 2rem;
-  justify-content: space-around;
+  justify-content: center;
   padding-top: .5em;
+  align-items: center;
 }
 .progress-bar input{
   max-width: 100%;
+  -webkit-appearence:none;
+  appearance: none;
+  height: 2px;
+  outline: none;
+}
+.progress-bar input[type=range]::slider-thumb{
+  appearance: none;
+  margin: .1px;
+  background-color: red;
+}
+.progress-bar input[type=range]::-moz-range-thumb{
+  /* height: 50px; */
+  /* margin-top: .1px; */
+  height: 4px;
+  width: 4px;
+  background-color: darkblue;
 }
 .progress-bar>*{
   padding-right: 0.8rem;
@@ -323,7 +338,7 @@ video {
 }
 .thumbnail{
   max-width: 50px;
-  margin-right: 1em;
+  margin-right: 2em;
   border-radius: .2em;
 }
 /* ALBUMS SECTION */
