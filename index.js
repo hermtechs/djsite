@@ -143,7 +143,7 @@ let playList = [
   {
     imgUrl:'images/gear.webp',
     songSrc:'audios/morning cool-rmx-2021.mp3',
-    Title:'morning cool-rmx-2021'
+    Title:'morning djrmx-2021'
   },
   {
     imgUrl:'images/errow.webp',
@@ -195,7 +195,5 @@ audioElement.onended = ()=> {PlayNextSong()}
 audioElement.addEventListener('timeupdate', ()=>{
   const songDuration = audioElement.duration;
   let currentSongTime = audioElement.currentTime;
-
-  audioSlider.value = (currentSongTime / songDuration)*100 + "%";
-  currentSongTime += audioSlider.value;
+  audioSlider.value = audioElement.currentTime;
 })
