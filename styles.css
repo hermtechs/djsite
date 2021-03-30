@@ -39,6 +39,9 @@ nav{
   transform: scale(0);
   left: 0;
 }
+.cart-icon{
+ padding-left: 4em ;
+}
 nav ul li{
   list-style: none;
   margin-top: 1rem;
@@ -105,7 +108,7 @@ nav a:hover:after{
 /* NAVIGATION BAR ON BIG SCREENS */
 @media screen and (min-width:720px){
  .nav-toggle-label{ display: none;}
-
+.cart-icon{ display: none;}
  header{
    display: grid;
    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
