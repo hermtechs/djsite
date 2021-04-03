@@ -620,7 +620,11 @@ width: 100%;
 background: blue;
 color:#fff;
 padding: .2em;
+cursor: pointer;
 }
 .product-image:hover + .product-overlay{
-  transform:translateY(-65px);
+  transform:translateY(-8.25rem);
+}
+.product-name{
+  color: blue;
 }
