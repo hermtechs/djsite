@@ -609,22 +609,36 @@ width: 100%;
 .product-image{
   position: relative;
 }
-.product-overlay{
+.view-product-btn{
   transform:scale(1,0);
   transition: 200ms;
   position: relative;
   z-index: 2;
   text-align: center;
 }
-.product-overlay span{
+.view-product-btn span{
 background: blue;
 color:#fff;
 padding: .2em;
 cursor: pointer;
 }
-.product-image:hover + .product-overlay{
-  transform:translateY(-8.25rem);
+
+.img-container:hover  .view-product-btn{
+  transform:translateY(-7rem);
+}
+.img-container:hover .product-image{
+  opacity: .7;
 }
 .product-name{
   color: blue;
+}
+.add-to-cartBtn{
+  color: rgb(209, 204, 204);
+  padding: .1em .3em;
+  border-radius: 4px;
+  background: linear-gradient(to right,#240E8B,#3142b6);
+  cursor: pointer;
+}
+.card-text>*+*{
+  margin-bottom: .2rem;
 }
