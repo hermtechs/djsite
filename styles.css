@@ -653,15 +653,12 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 .quick-view-overlay .quick-view-container{
  position: relative;
  background: #fff;
- /* line-height: 100vh; */
-
-
+ margin: 4rem; 
 }
-.quick-img{
+/* .quick-img{
   max-width: 500px
-}
+} */
