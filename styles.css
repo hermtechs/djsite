@@ -650,18 +650,17 @@ cursor: pointer;
   height: 100%;
   background: rgba(0,0,0, 0.7);
   z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 .quick-view-overlay .quick-view-container{
  position: relative;
  background: #fff;
  /* line-height: 100vh; */
- /* padding: 8em 4em 5em 8em; */
- margin: 2em;
-display: grid;
-grid-template-columns: 1fr 1fr;
-justify-items: center;
-align-items: center;
-overflow-y: scroll;
+
+
 }
 .quick-img{
   max-width: 500px
