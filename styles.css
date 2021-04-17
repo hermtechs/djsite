@@ -674,3 +674,9 @@ cursor: pointer;
   padding: 1rem;
   background: lightblue;
 }
+@media(min-width:450px){
+  .quick-view-container{
+    margin: 3rem;
+    overflow-y: scroll;
+  }
+}
