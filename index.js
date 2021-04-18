@@ -180,7 +180,7 @@ AudioPrevBtn.addEventListener('click', playPrevSong)
 function playPrevSong(){
 if(counter>=1){
   counter-=1;  
-console.log(counter);  
+// console.log(counter);  
 audioElement.src = playList[counter].songSrc;
 songTitle.innerText = playList[counter].Title;
 songImg.src = playList[counter].imgUrl;
