@@ -674,8 +674,10 @@ cursor: pointer;
   padding: 1rem;
   background: lightblue;
 }
+/* ..add-to-cartBtn   */
 @media(min-width:450px){
   .quick-view-container{
     margin: 3rem;
   }
+
 }
