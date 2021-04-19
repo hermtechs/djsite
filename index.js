@@ -78,9 +78,9 @@ closePlayer.addEventListener('click', ()=>{
     audioPlayer.style.display = 'none'
   },500)
   audioElement.pause();
-  // audioPlayer.style.display = 'none'; 
+  
 })
-
+  
 //MUSIC ALBUMS
 /*** scroll right and left buttons  *** */
 const albumSize = eachAudioAlbum[0].clientWidth;

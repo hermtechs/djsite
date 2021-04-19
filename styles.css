@@ -663,7 +663,7 @@ cursor: pointer;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -737,6 +737,7 @@ cursor: pointer;
   align-items: center;
   transition: 500ms;
   padding: .3em;
+  cursor: pointer;
 }
 .closeQuick-view:hover{
   background-color: #190757;
