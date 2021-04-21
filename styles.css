@@ -686,7 +686,9 @@ cursor: pointer;
   background-color: rgb(48, 48, 189);
   outline: 1px solid #432baf;
 }
-
+.quick-img{
+  max-width: 304px;
+}
 .prod-title{
   text-align: center;
 }
@@ -720,7 +722,6 @@ cursor: pointer;
 .quick-img{
   display: inline-block;
   text-align: center;
-  max-width: 31rem;
 }
 .closeQuick-view{
   position: relative;
@@ -729,8 +730,8 @@ cursor: pointer;
   width: 20px;
   height: 20px;
   z-index: 2060;
-  margin-top: 2.2rem;
-  margin-left: -1.2rem;
+  margin-top: 1rem;
+  margin-left: -1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -743,13 +744,9 @@ cursor: pointer;
   color: #fff;
 }
 /* ..add-to-cartBtn   */
-@media(max-width:400px){
+@media(min-width:450px){
   .quick-view-container{
     margin: 3rem;
-  }
-  .quick-img{
-    max-width: 304px;
-    /* max-height: 12.5rem; */
   }
 
 }
