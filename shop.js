@@ -61,3 +61,5 @@ closeQuickViewBtn.addEventListener('click',()=>{
     quickViewOverlay.style.display= 'none';
     })
 }
+// const x = document.querySelector('.product-image2');
+// console.log(x.clientWidth, x.clientHeight);
