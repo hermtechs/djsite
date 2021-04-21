@@ -720,7 +720,7 @@ cursor: pointer;
 .quick-img{
   display: inline-block;
   text-align: center;
-  max-width: 30rem;
+  max-width: 31rem;
 }
 .closeQuick-view{
   position: relative;
@@ -729,8 +729,8 @@ cursor: pointer;
   width: 20px;
   height: 20px;
   z-index: 2060;
-  margin-top: 1.5rem;
-  margin-left: -1rem;
+  margin-top: 2.2rem;
+  margin-left: -1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -748,8 +748,8 @@ cursor: pointer;
     margin: 3rem;
   }
   .quick-img{
-    max-width: 302px;
-    max-height: 200px;
+    max-width: 19rem;
+    max-height: 12.5px;
   }
 
 }
