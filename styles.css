@@ -686,9 +686,7 @@ cursor: pointer;
   background-color: rgb(48, 48, 189);
   outline: 1px solid #432baf;
 }
-.quick-img{
-  max-width: 304px;
-}
+
 .prod-title{
   text-align: center;
 }
@@ -722,6 +720,7 @@ cursor: pointer;
 .quick-img{
   display: inline-block;
   text-align: center;
+  max-width: 30rem;
 }
 .closeQuick-view{
   position: relative;
@@ -744,9 +743,23 @@ cursor: pointer;
   color: #fff;
 }
 /* ..add-to-cartBtn   */
-@media(min-width:450px){
+@media(max-width:450px){
   .quick-view-container{
     margin: 3rem;
   }
-
+  .quick-img{
+    max-width: 304px;
+  }
+}
+.cart-overlay{
+  position: fixed;
+  z-index: 1000;
+  background: rgb(243, 234, 234);
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+}
+.cart-overlay img{
+  max-width: 31rem;
 }

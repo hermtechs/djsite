@@ -60,6 +60,14 @@ closeQuickViewBtn.addEventListener('click',()=>{
     // quickViewContainer.style.transform = 'scale(0)'
     quickViewOverlay.style.display= 'none';
     })
+ //closing quickView window on pressing Esc key
+ document.addEventListener('keydown',(event)=>{
+    if(event.code=='Escape'){
+    quickViewOverlay.style.display = 'none';
+    }
+ })   
+  //closing quickView window on click
+  quickViewOverlay.addEventListener('click',()=>{
+      quickViewOverlay.style.display='none';
+  })
 }
-// const x = document.querySelector('.product-image2');
-// console.log(x.clientWidth, x.clientHeight);
