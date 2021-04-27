@@ -743,7 +743,7 @@ cursor: pointer;
   color: #fff;
 }
 .quick-img{
-  max-width: 304px;
+  /*max-width: 304px;*/
 }
 /* ..add-to-cartBtn   */
 @media(max-width:450px){
