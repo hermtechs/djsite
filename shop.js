@@ -5,6 +5,10 @@ const quickViewBtn = document.querySelectorAll('.view-product-btn');
 const quickViewOverlay = document.querySelector('.quick-view-overlay')
 const quickViewContainer = document.querySelector('.quick-view-container')
 const quickViewWindow = document.querySelector('.quick-view-container')
+const closeCartBtn = document.querySelector('.close-cart')
+const cart = document.querySelector('.cart');
+const cartOverlay = document.querySelector('.cart-overlay')
+
 humburger.addEventListener('click', ()=>{
     if(navSpan.style.transform === 'rotate(8deg)'){
      navSpan.style.transform = 'rotate(0deg)'
@@ -71,3 +75,8 @@ closeQuickViewBtn.addEventListener('click',()=>{
       quickViewOverlay.style.display='none';
   })
 }
+// CART
+closeCartBtn.addEventListener('click',()=>{
+     cart.style.transform='translateX(110%)'
+     cartOverlay.style.visibility = 'hidden'
+})
