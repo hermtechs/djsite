@@ -764,6 +764,7 @@ cursor: pointer;
   bottom:0;
   height: 100%;
   width: 100%;
+  overflow: scroll;
   transition: 150ms;
    /* transform: translateX(110%); */
 }
