@@ -8,6 +8,7 @@ const quickViewWindow = document.querySelector('.quick-view-container')
 const closeCartBtn = document.querySelector('.close-cart')
 const cart = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay')
+const cartIcon = document.querySelectorAll('.cart-btn');
 
 humburger.addEventListener('click', ()=>{
     if(navSpan.style.transform === 'rotate(8deg)'){
@@ -56,26 +57,44 @@ quickViewWindow.innerHTML = `
 </div>
 `    
 quickViewOverlay.appendChild(quickViewWindow);
-// quickViewContainer.style.transform = 'scale(1)'
 quickViewOverlay.style.display= 'flex';    
 
 const closeQuickViewBtn = quickViewWindow.querySelector('.closeQuick-view')
 closeQuickViewBtn.addEventListener('click',()=>{
-    // quickViewContainer.style.transform = 'scale(0)'
     quickViewOverlay.style.display= 'none';
     })
- //closing quickView window on pressing Esc key
- document.addEventListener('keydown',(event)=>{
-    if(event.code=='Escape'){
-    quickViewOverlay.style.display = 'none';
-    }
- })   
+  
   //closing quickView window on click
   quickViewOverlay.addEventListener('click',()=>{
       quickViewOverlay.style.display='none';
   })
 }
+
+ //closing overlays ie cart and quickView on pressing Esc key
+ document.addEventListener('keydown',(event)=>{
+    if(event.code=='Escape'){
+    quickViewOverlay.style.display = 'none';
+    cartOverlay.style.visibility='hidden'
+    cart.style.transform = 'translateX(110%)'
+    }
+ }) 
+
 // CART
+//opening cart
+cart.style.transform='translateX(110%)'
+cartIcon.forEach(icon=>{ icon.addEventListener('click', ()=>{
+    if(cart.style.transform==='translateX(110%)'){
+     cart.style.transform = 'translateX(0%)'
+     cartOverlay.style.visibility = 'visible'
+    }
+    else{
+        cart.style.transform='translateX(110%)'
+        cartOverlay.style.visibility = 'hidden'
+    }
+})
+}
+)
+
 closeCartBtn.addEventListener('click',()=>{
      cart.style.transform='translateX(110%)'
      cartOverlay.style.visibility = 'hidden'
