@@ -114,7 +114,6 @@ nav a:hover:after{
   height: 100%;
   width: 100%;
   visibility: hidden;
-
 } */
 
 /* NAVIGATION BAR ON BIG SCREENS */
@@ -742,15 +741,15 @@ cursor: pointer;
   background-color: #190757;
   color: #fff;
 }
-
+.quick-img{
+  /*max-width: 304px;*/
+}
 /* ..add-to-cartBtn   */
 @media(max-width:450px){
-  /* .quick-view-container{
+  .quick-view-container{
     margin: 3rem;
-  } */
-  .quick-img{
-    max-width: 304px;
   }
+ 
 }
 
 
