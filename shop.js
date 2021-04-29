@@ -99,3 +99,4 @@ closeCartBtn.addEventListener('click',()=>{
      cart.style.transform='translateX(110%)'
      cartOverlay.style.visibility = 'hidden'
 })
+//CART AND CALCULATIONS

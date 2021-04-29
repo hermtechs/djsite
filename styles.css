@@ -133,7 +133,7 @@ nav a:hover:after{
    z-index: 3000;
    display: flex;
    align-items: center;
-
+   user-select: none;
  }
  nav{
    all: unset;
