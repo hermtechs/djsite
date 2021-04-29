@@ -8,6 +8,9 @@ html{
 body::-webkit-scrollbar {
   width: .4em;
 }
+i{
+  user-select: none;
+}
  
 /* body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(14, 4, 51, 0.3);
@@ -52,7 +55,7 @@ nav{
   left: 0;
 }
 .cart-icon{
- padding-left: 4em ;
+ padding-left: 3em ;
  cursor: pointer;
 }
 nav ul li{
@@ -824,15 +827,17 @@ cursor: pointer;
   display: inline-block;
   cursor: pointer;
   color: #24099e;
+  user-select: none;
 }
 .fa-chevron-up:hover,.fa-chevron-down:hover{
   transform: scale(1.2);
 }
 .remove-item{
   display: inline-block;
-  color: red;
+  color: #ec0909;
   cursor: pointer;
   transition: 250ms;
+  user-select: none;
 }
 .remove-item:hover{
   transform: scale(1.1);
