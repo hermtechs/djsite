@@ -65,9 +65,9 @@ closeQuickViewBtn.addEventListener('click',()=>{
     })
   
   //closing quickView window on click
-  quickViewOverlay.addEventListener('click',()=>{
-      quickViewOverlay.style.display='none';
-  })
+//   quickViewOverlay.addEventListener('click',()=>{
+//       quickViewOverlay.style.display='none';
+//   })
 }
 
  //closing overlays ie cart and quickView on pressing Esc key
