@@ -6,9 +6,11 @@ const quickViewOverlay = document.querySelector('.quick-view-overlay')
 const quickViewContainer = document.querySelector('.quick-view-container')
 const quickViewWindow = document.querySelector('.quick-view-container')
 const closeCartBtn = document.querySelector('.close-cart')
-const cart = document.querySelector('.cart');
+const cartContainer = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay')
 const cartIcon = document.querySelectorAll('.cart-btn');
+const addToCartBtn = document.querySelectorAll('.add-to-cartBtn');
+
 
 humburger.addEventListener('click', ()=>{
     if(navSpan.style.transform === 'rotate(8deg)'){
@@ -75,20 +77,20 @@ closeQuickViewBtn.addEventListener('click',()=>{
     if(event.code=='Escape'){
     quickViewOverlay.style.display = 'none';
     cartOverlay.style.visibility='hidden'
-    cart.style.transform = 'translateX(110%)'
+    cartContainer.style.transform = 'translateX(110%)'
     }
  }) 
 
 // CART
 //opening cart
-cart.style.transform='translateX(110%)'
+cartContainer.style.transform='translateX(110%)'
 cartIcon.forEach(icon=>{ icon.addEventListener('click', ()=>{
-    if(cart.style.transform==='translateX(110%)'){
-     cart.style.transform = 'translateX(0%)'
+    if(cartContainer.style.transform==='translateX(110%)'){
+     cartContainer.style.transform = 'translateX(0%)'
      cartOverlay.style.visibility = 'visible'
     }
     else{
-        cart.style.transform='translateX(110%)'
+        cartContainer.style.transform='translateX(110%)'
         cartOverlay.style.visibility = 'hidden'
     }
 })
@@ -96,7 +98,59 @@ cartIcon.forEach(icon=>{ icon.addEventListener('click', ()=>{
 )
 
 closeCartBtn.addEventListener('click',()=>{
-     cart.style.transform='translateX(110%)'
+     cartContainer.style.transform='translateX(110%)'
      cartOverlay.style.visibility = 'hidden'
 })
 //CART AND CALCULATIONS
+
+// const itemPrice = document.querySelector('.price');
+const removeBtn = cartContainer.querySelectorAll('.remove-item')
+removeBtn.forEach(btn=>{
+    btn.addEventListener('click',(event)=>{
+    const specificClickedBtn = event.target;
+    specificClickedBtn.parentElement.parentElement.remove();
+    updateTotal();
+    })
+})
+
+function updateTotal(){
+ const cartRow = cartContainer.querySelectorAll('.cart-item');
+ var total = 0;
+ for(var i=0; i<cartRow.length; i++){
+    const eachRow = cartRow[i];
+    const eachItemPrice = eachRow.querySelectorAll('.price')[0].innerText
+    const eachItemPriceValue=  eachItemPrice.replace('$','');
+    
+    const eachItemQuantity= eachRow.querySelectorAll('.item-quantity')[0].innerText
+    total = ( total + parseFloat(eachItemPriceValue * eachItemQuantity) );
+ };  
+ const totalElement = cartContainer.querySelector('.total');
+ totalElement.innerText = total
+}
+//Adding a product to a cart
+addToCartBtn.forEach(btn=>{
+    btn.addEventListener('click',addItemToCart)
+})
+function addItemToCart(event){
+ const theClickedBtn = event.target;
+ const productContainer = theClickedBtn.parentElement.parentElement;
+ const prodPrice = productContainer.querySelector('.prod-price').innerText;
+ const prodImageUrl = productContainer.querySelector('.product-image').src;
+ const productName = productContainer.querySelector('.product-name').innerText;
+ const  cartItemRow = document.createElement('article');
+ cartItemRow.className = 'cart-item' ;
+ cartItemRow.innerHTML = `<article class="cart-item">
+ <img src="${prodImageUrl}" alt="product"> 
+<div>
+   <h4>${productName}</h4>
+   <h5 class="item-price price">${prodPrice}</h5>
+   <span class="remove-item">remove</span>
+</div>  
+<div class="prod-quantity">
+   <i class="fas fa-chevron-up"></i>
+   <p class="item-quantity">1</p>
+   <i class="fas fa-chevron-down"></i>
+</div>` ;
+cartContainer.appendChild(cartItemRow); 
+updateTotal();
+}
