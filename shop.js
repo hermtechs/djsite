@@ -113,7 +113,7 @@ function removeCartItem(event){
     }
 
 function updateTotal(){
- const cartRow = cartContainer.querySelectorAll('.cart-item');
+ var cartRow = cartContainer.querySelectorAll('.cart-item');
  var total = 0;
  for(var i=0; i<cartRow.length; i++){
     const eachRow = cartRow[i];
@@ -133,27 +133,47 @@ addToCartBtn.forEach(btn=>{
 function addItemToCart(event){
  const theClickedBtn = event.target;
  const productContainer = theClickedBtn.parentElement.parentElement;
- const prodPrice = productContainer.querySelector('.prod-price').innerText;
- const prodImageUrl = productContainer.querySelector('.product-image').src;
- const productName = productContainer.querySelector('.product-name').innerText;
- const  cartItemRow = document.createElement('article');
-
- cartItemRow.innerHTML = `<article class="cart-item">
- <img src="${prodImageUrl}" alt="product" class="prod-image"> 
-<div>
-   <h4>${productName}</h4>
-   <h5 class="item-price price">${prodPrice}</h5>
-   <span class="remove-item">remove</span>
-</div>  
-<div class="prod-quantity">
-   <i class="fas fa-chevron-up"></i>
-   <p class="item-quantity">1</p>
-   <i class="fas fa-chevron-down"></i>
-</div>` ;
-cartItemsContainer.append(cartItemRow); 
-updateTotal();
-const removeBtn = cartContainer.querySelectorAll('.remove-item')
-removeBtn.forEach(btn=>{
-    btn.addEventListener('click', removeCartItem)
-})
+ var prodPrice = productContainer.querySelector('.prod-price').innerText;
+ var prodImageUrl = productContainer.querySelector('.product-image').src;
+ var productName = productContainer.querySelector('.product-name').innerText;
+ addProductToCart(productName, prodImageUrl, prodPrice)
+// fndTotal();
+openAndCloseCart();
+checkItemAlreadyAdded(productName)
 }
+
+function addProductToCart(productName, prodImageUrl, prodPrice){
+    var  cartItemRow = document.createElement('article');
+    cartRowContents = `<article class="cart-item">
+    <img src="${prodImageUrl}" alt="product" class="prod-image"> 
+   <div>
+      <h4>${productName}</h4>
+      <h5 class="item-price price">${prodPrice}</h5>
+      <span class="remove-item">remove</span>
+   </div>  
+   <div class="prod-quantity">
+      <i class="fas fa-chevron-up"></i>
+      <p class="item-quantity">1</p>
+      <i class="fas fa-chevron-down"></i>
+   </div>` ;
+   cartItemRow.innerHTML = cartRowContents
+   cartItemsContainer.append(cartItemRow); 
+   const removeBtn = cartContainer.querySelectorAll('.remove-item')
+   removeBtn.forEach(btn=>{
+       btn.addEventListener('click', removeCartItem)
+   })
+}
+function openAndCloseCart(){
+    cartContainer.style.transform='translateX(0%)';
+    cartOverlay.style.visibility = 'visible';
+
+    setTimeout(()=>{
+        cartContainer.style.transform='translateX(110%)'
+        cartOverlay.style.visibility = 'hidden'  
+    },700)
+}
+function checkItemAlreadyAdded(productName){
+    cartItemRow.forEach(row=>{
+     console.log(productName)
+    })
+}    
