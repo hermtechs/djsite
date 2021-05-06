@@ -7,6 +7,7 @@ const quickViewContainer = document.querySelector('.quick-view-container')
 const quickViewWindow = document.querySelector('.quick-view-container')
 const closeCartBtn = document.querySelector('.close-cart')
 const cartContainer = document.querySelector('.cart');
+const cartItemsContainer = document.querySelector('.cart-items')
 const cartOverlay = document.querySelector('.cart-overlay')
 const cartIcon = document.querySelectorAll('.cart-btn');
 const addToCartBtn = document.querySelectorAll('.add-to-cartBtn');
@@ -104,14 +105,12 @@ closeCartBtn.addEventListener('click',()=>{
 //CART AND CALCULATIONS
 
 // const itemPrice = document.querySelector('.price');
-const removeBtn = cartContainer.querySelectorAll('.remove-item')
-removeBtn.forEach(btn=>{
-    btn.addEventListener('click',(event)=>{
+
+function removeCartItem(event){
     const specificClickedBtn = event.target;
     specificClickedBtn.parentElement.parentElement.remove();
     updateTotal();
-    })
-})
+    }
 
 function updateTotal(){
  const cartRow = cartContainer.querySelectorAll('.cart-item');
@@ -138,9 +137,9 @@ function addItemToCart(event){
  const prodImageUrl = productContainer.querySelector('.product-image').src;
  const productName = productContainer.querySelector('.product-name').innerText;
  const  cartItemRow = document.createElement('article');
- cartItemRow.className = 'cart-item' ;
+
  cartItemRow.innerHTML = `<article class="cart-item">
- <img src="${prodImageUrl}" alt="product"> 
+ <img src="${prodImageUrl}" alt="product" class="prod-image"> 
 <div>
    <h4>${productName}</h4>
    <h5 class="item-price price">${prodPrice}</h5>
@@ -151,6 +150,10 @@ function addItemToCart(event){
    <p class="item-quantity">1</p>
    <i class="fas fa-chevron-down"></i>
 </div>` ;
-cartContainer.appendChild(cartItemRow); 
+cartItemsContainer.append(cartItemRow); 
 updateTotal();
+const removeBtn = cartContainer.querySelectorAll('.remove-item')
+removeBtn.forEach(btn=>{
+    btn.addEventListener('click', removeCartItem)
+})
 }

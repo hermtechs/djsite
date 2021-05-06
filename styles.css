@@ -794,7 +794,7 @@ cursor: pointer;
   justify-content: center;
   align-items: center;
 }
-.cart-item img{
+.prod-image{
   width: 75px;
   height: 75px;
 }
@@ -852,7 +852,10 @@ cursor: pointer;
 .cart-footer{
   text-align: center;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   font-weight: lighter;
+  background: #e1dfec;
+  border-radius: .3em;
 }
 .checkout{
   background: #24099e;
