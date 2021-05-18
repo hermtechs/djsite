@@ -139,11 +139,19 @@ function addItemToCart(event){
  addProductToCart(productName, prodImageUrl, prodPrice)
 // fndTotal();
 openAndCloseCart();
-checkItemAlreadyAdded(productName)
+// checkItemAlreadyAdded(productName)
 }
 
 function addProductToCart(productName, prodImageUrl, prodPrice){
     var  cartItemRow = document.createElement('article');
+    const productTitle = document.querySelectorAll('.product-name');
+    for(var i=0; i<productTitle.length; i++){
+        var eachProductTitle = productTitle[i];
+       if(eachProductTitle.innerText=productName){
+           alert('item already added to cart')
+       }
+    }
+
     cartRowContents = `<article class="cart-item">
     <img src="${prodImageUrl}" alt="product" class="prod-image"> 
    <div>
@@ -172,8 +180,12 @@ function openAndCloseCart(){
         cartOverlay.style.visibility = 'hidden'  
     },700)
 }
-function checkItemAlreadyAdded(productName){
-    cartItemRow.forEach(row=>{
-     console.log(productName)
-    })
-}    
+// function checkItemAlreadyAdded(productName){
+//     const cartProductRow = document.querySelectorAll('.cart-item')
+//     cartProductRow.forEach(row=>{
+//     //  console.log(productName)
+//      if(row.innerText==productName){
+//          alert('item already added')
+//      }
+//     })
+// }    
