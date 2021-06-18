@@ -181,12 +181,7 @@ function updateTotal() {
     const eachRow = cartRows[i];
     const eachPrice = eachRow.querySelector(".item-price").innerText;
     //console.log(eachPrice);
-<<<<<<< CodeSandbox
-    const eachProductQuantity = eachRow.querySelector(".item-quantity")
-=======
-    eachPrice.replace("$", "");
->>>>>>> GitHub
-    const eachProductQuantity = eachRow.querySelector(".item-quantity")
+    const eachProductQuantty = eachRow.querySelector(".item-quantity")
       .innerText;
     console.log(eachPrice);
   }
