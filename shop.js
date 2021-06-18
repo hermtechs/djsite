@@ -175,12 +175,10 @@ function openAndCloseCart() {
 }
 function updateTotal() {
   const cartRows = cartContainer.querySelectorAll(".cart-item");
-  // getting All cart Row
-  console.log(cartRows);
+  // getting All cart Ro
   for (var i = 0; i < cartRows.length; i++) {
     const eachRow = cartRows[i];
     const eachPrice = eachRow.querySelector(".item-price").innerText;
-    //console.log(eachPrice);
     const eachProductQuantty = eachRow.querySelector(".item-quantity")
       .innerText;
     console.log(eachPrice);
