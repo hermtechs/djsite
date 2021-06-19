@@ -175,12 +175,15 @@ function openAndCloseCart() {
 }
 function updateTotal() {
   const cartRows = cartContainer.querySelectorAll(".cart-item");
-  // getting All cart Ro
+  // getting All cart Rows
   for (var i = 0; i < cartRows.length; i++) {
     const eachRow = cartRows[i];
     const eachPrice = eachRow.querySelector(".item-price").innerText;
-    const eachProductQuantty = eachRow.querySelector(".item-quantity")
+    const eachProductQuantity = eachRow.querySelector(".item-quantity")
       .innerText;
-    console.log(eachPrice);
+    var total = 0 + parseFloat(eachPrice * eachProductQuantity);
+    console.log(total);
   }
+  const cartTotal = cartContainer.querySelector(".total");
+  cartTotal.innerText = total;
 }
