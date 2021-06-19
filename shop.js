@@ -138,7 +138,6 @@ function addItemToCart(event) {
   var productName = productContainer.querySelector(".product-name").innerText;
   addProductToCart(productName, prodImageUrl, prodPrice);
   // fndTotal();
-  updateTotal();
   openAndCloseCart();
   // checkItemAlreadyAdded(productName)
 }
@@ -173,15 +172,17 @@ function openAndCloseCart() {
     cartOverlay.style.visibility = "hidden";
   }, 700);
 }
+
 function updateTotal() {
   const cartRows = cartContainer.querySelectorAll(".cart-item");
+  var total = 0;
   // getting All cart Rows
   for (var i = 0; i < cartRows.length; i++) {
     const eachRow = cartRows[i];
     const eachPrice = eachRow.querySelector(".item-price").innerText;
     const eachProductQuantity = eachRow.querySelector(".item-quantity")
       .innerText;
-    var total = 0 + parseFloat(eachPrice * eachProductQuantity);
+    total = total + parseFloat(eachPrice * eachProductQuantity);
     console.log(total);
   }
   const cartTotal = cartContainer.querySelector(".total");
