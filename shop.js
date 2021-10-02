@@ -125,6 +125,7 @@ function updateTotal(){
  };  
  const totalElement = cartContainer.querySelector('.total');
  totalElement.innerText = total
+ console.log(total);
 }
 //Adding a product to a cart
 addToCartBtn.forEach(btn=>{
@@ -144,18 +145,15 @@ openAndCloseCart();
 
 function addProductToCart(productName, prodImageUrl, prodPrice){
     var  cartItemRow = document.createElement('article');
-    const productTitle = document.querySelectorAll('.product-name');
-    for(var i=0; i<productTitle.length; i++){
-        var eachProductTitle = productTitle[i];
-       if(eachProductTitle.innerText=productName){
-           alert('item already added to cart')
-       }
-    }
+  const cartProdTitle = cartContainer.querySelectorAll('.product-title');
+// for(var i=0; i<=cartProdTitle.length; i++){
+//     console.log(cartProdTitle[i].innerText);
+// }
 
     cartRowContents = `<article class="cart-item">
     <img src="${prodImageUrl}" alt="product" class="prod-image"> 
    <div>
-      <h4>${productName}</h4>
+      <h4 class='product-title'>${productName}</h4>
       <h5 class="item-price price">${prodPrice}</h5>
       <span class="remove-item">remove</span>
    </div>  
@@ -165,11 +163,20 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
       <i class="fas fa-chevron-down"></i>
    </div>` ;
    cartItemRow.innerHTML = cartRowContents
-   cartItemsContainer.append(cartItemRow); 
+   cartItemsContainer.append(cartItemRow);
+    setTimeout(updateTotal,3000);
+//    setTimeout(stop,1000); 
    const removeBtn = cartContainer.querySelectorAll('.remove-item')
    removeBtn.forEach(btn=>{
        btn.addEventListener('click', removeCartItem)
    })
+   const increaseItemQuantity = document.querySelectorAll('.chevron-up');
+   const decreaseItemQuantity = document.querySelectorAll('.chevron-down');
+   increaseItemQuantity.forEach(item=>{
+       console.log(item)
+   })
+//    increaseItemQuantity.forEach((item)=>{item.addEventListener('click',increaseQuantity));
+//    decreaseItemQuantity.forEach(item=>item.addEventListener('click',decreaseQuantity))
 }
 function openAndCloseCart(){
     cartContainer.style.transform='translateX(0%)';
@@ -179,13 +186,9 @@ function openAndCloseCart(){
         cartContainer.style.transform='translateX(110%)'
         cartOverlay.style.visibility = 'hidden'  
     },700)
+
 }
-// function checkItemAlreadyAdded(productName){
-//     const cartProductRow = document.querySelectorAll('.cart-item')
-//     cartProductRow.forEach(row=>{
-//     //  console.log(productName)
-//      if(row.innerText==productName){
-//          alert('item already added')
-//      }
-//     })
-// }    
+//  increase/decrease quantity of items in cart(chevron btns)
+function increaseQuantity(){
+console.log('clicked');
+}
