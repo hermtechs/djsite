@@ -151,7 +151,7 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
 // }
 
     cartRowContents = `<article class="cart-item">
-    <img src="${prodImageUrl}" alt="product" class="prod-image"> 
+    <img src="${prodImageUrl}" alt="product" class="prod-image">
    <div>
       <h4 class='product-title'>${productName}</h4>
       <h5 class="item-price price">${prodPrice}</h5>
