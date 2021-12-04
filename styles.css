@@ -357,6 +357,7 @@ video {
 }
 .thumbnail{
   max-width: 50px;
+  min-height: 50px;
   margin-right: 2em;
   border-radius: .2em;
 }
