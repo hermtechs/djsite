@@ -358,7 +358,7 @@ video {
 .thumbnail{
   max-width: 50px;
   min-height: 50px;
-  margin-right: 2em;
+  margin-right: 2em; 
   border-radius: .2em;
 }
 /* ALBUMS SECTION */
@@ -1037,6 +1037,9 @@ button:focus , .submit-btn:focus{
 }
 
 .email-info a{
+  color: #000;
+}
+.highlight-text a{
   color: #000;
 }
 /* *****CONTACT FORM ****** */
