@@ -167,11 +167,20 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
       <p class="item-quantity">1</p>
       <i class="fas fa-chevron-down"></i>
    </div>` ;
-  
+  //check if item already in cart
+const productTitles = document.querySelectorAll('.product-name');
+productTitles.forEach(title=>{
+if(title.innerText==productName){
+    alert('product already in cart');
+    return;
+}
+
+})
+
    cartItemRow.innerHTML = cartRowContents
    cartItemsContainer.append(cartItemRow);
-
    setTimeout(updateTotal,3000)
+
 
     //increase/ reduce Item quantity
     const increaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-up');
@@ -183,6 +192,7 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
    decreaseItemQuantityBtns.forEach(btn=>{
     btn.addEventListener('click', decreaseQuantity)
 })
+
     //remove item from cart
    const removeBtn = cartContainer.querySelectorAll('.remove-item')
    removeBtn.forEach(btn=>{
