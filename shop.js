@@ -11,7 +11,21 @@ const cartItemsContainer = document.querySelector('.cart-items')
 const cartOverlay = document.querySelector('.cart-overlay')
 const cartIcon = document.querySelectorAll('.cart-btn');
 const addToCartBtn = document.querySelectorAll('.add-to-cartBtn');
+const increaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-up')
+const decreaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-down')
 
+if(document.readyState=='loading'){
+    document.addEventListener('DOMContentLoaded', ready);
+}
+else{
+    ready();
+}
+function ready(){
+    //Adding a product to a cart
+    addToCartBtn.forEach(btn=>{
+        btn.addEventListener('click',addItemToCart)
+    })
+}
 
 humburger.addEventListener('click', ()=>{
     if(navSpan.style.transform === 'rotate(8deg)'){
@@ -27,6 +41,7 @@ quickViewBtn.forEach(btn=>{
     btn.addEventListener('click', createQuickViewWindow);
 })
     
+//QUICK VIEW WINDOW
 function createQuickViewWindow(event){
 // const quickViewWindow = document.createElement('article');    
 const clickedSpecificBtn = event.target
@@ -45,7 +60,6 @@ quickViewWindow.innerHTML = `
 <h2 class="${productTitle}">DJ Nav-Hoodie</h2>
 <h4 class="quickView-prod-price">${productPrice}</h4>
 <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, perferendis?</p>
-
 <div class="container">
 <select name="sizes" id="sizes" class="select-sizes">
 <option value="Pick a Size">Pick a Size</option>
@@ -66,11 +80,6 @@ const closeQuickViewBtn = quickViewWindow.querySelector('.closeQuick-view')
 closeQuickViewBtn.addEventListener('click',()=>{
     quickViewOverlay.style.display= 'none';
     })
-  
-  //closing quickView window on click
-//   quickViewOverlay.addEventListener('click',()=>{
-//       quickViewOverlay.style.display='none';
-//   })
 }
 
  //closing overlays ie cart and quickView on pressing Esc key
@@ -120,17 +129,16 @@ function updateTotal(){
     const eachItemPrice = eachRow.querySelectorAll('.price')[0].innerText
     const eachItemPriceValue=  eachItemPrice.replace('$','');
     
-    const eachItemQuantity= eachRow.querySelectorAll('.item-quantity')[0].innerText
+    var eachItemQuantity= eachRow.querySelectorAll('.item-quantity')[0].innerText
     total = ( total + parseFloat(eachItemPriceValue * eachItemQuantity) );
  };  
  const totalElement = cartContainer.querySelector('.total');
  totalElement.innerText = total
  console.log(total);
 }
-//Adding a product to a cart
-addToCartBtn.forEach(btn=>{
-    btn.addEventListener('click',addItemToCart)
-})
+
+
+    
 function addItemToCart(event){
  const theClickedBtn = event.target;
  const productContainer = theClickedBtn.parentElement.parentElement;
@@ -146,9 +154,6 @@ openAndCloseCart();
 function addProductToCart(productName, prodImageUrl, prodPrice){
     var  cartItemRow = document.createElement('article');
   const cartProdTitle = cartContainer.querySelectorAll('.product-title');
-// for(var i=0; i<=cartProdTitle.length; i++){
-//     console.log(cartProdTitle[i].innerText);
-// }
 
     cartRowContents = `<article class="cart-item">
     <img src="${prodImageUrl}" alt="product" class="prod-image">
@@ -162,21 +167,28 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
       <p class="item-quantity">1</p>
       <i class="fas fa-chevron-down"></i>
    </div>` ;
+  
    cartItemRow.innerHTML = cartRowContents
    cartItemsContainer.append(cartItemRow);
-    setTimeout(updateTotal,3000);
-//    setTimeout(stop,1000); 
+
+   setTimeout(updateTotal,3000)
+
+    //increase/ reduce Item quantity
+    const increaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-up');
+    const decreaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-down');
+   increaseItemQuantityBtns.forEach(btn=>{
+       btn.addEventListener('click', increaseQuantity)
+   })
+
+   decreaseItemQuantityBtns.forEach(btn=>{
+    btn.addEventListener('click', decreaseQuantity)
+})
+    //remove item from cart
    const removeBtn = cartContainer.querySelectorAll('.remove-item')
    removeBtn.forEach(btn=>{
        btn.addEventListener('click', removeCartItem)
    })
-   const increaseItemQuantity = document.querySelectorAll('.chevron-up');
-   const decreaseItemQuantity = document.querySelectorAll('.chevron-down');
-   increaseItemQuantity.forEach(item=>{
-       console.log(item)
-   })
-//    increaseItemQuantity.forEach((item)=>{item.addEventListener('click',increaseQuantity));
-//    decreaseItemQuantity.forEach(item=>item.addEventListener('click',decreaseQuantity))
+
 }
 function openAndCloseCart(){
     cartContainer.style.transform='translateX(0%)';
@@ -189,6 +201,28 @@ function openAndCloseCart(){
 
 }
 //  increase/decrease quantity of items in cart(chevron btns)
-function increaseQuantity(){
-console.log('clicked');
+function increaseQuantity(e){
+const clickedBtn = e.target;
+var quantityToChange = clickedBtn.parentElement.querySelector('.item-quantity')
+var quantityToChangeValue = parseInt(quantityToChange.innerText)
+quantityToChangeValue++;
+console.log(quantityToChange)
+quantityToChange.innerText = quantityToChangeValue;
+updateTotal()
+}
+
+function decreaseQuantity(e){
+    const clickedBtn = e.target;
+    var quantityToChange = clickedBtn.parentElement.querySelector('.item-quantity')
+var quantityToChangeValue = parseInt(quantityToChange.innerText)
+if(quantityToChangeValue>=2){
+quantityToChangeValue--;
+updateTotal();
+}
+else{
+    // quantityToChange.parentElement.parentElement.remove();
+    alert('quantity must not be less than 1')
+    updateTotal()
+}
+quantityToChange.innerText = quantityToChangeValue;
 }

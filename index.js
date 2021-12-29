@@ -27,33 +27,33 @@ humburger.addEventListener('click', ()=>{
  })
 
 // VIDEO PLAYERS 
-const playPauseBtn = document.querySelectorAll(".play-btn");
+// const playPauseBtn = document.querySelectorAll(".play-btn");
 //ENABLING THE VIDEOS TO BE PLAYED AND PAUSED
 //getting play-pause btns for each video
-playPauseBtn.forEach((btn) => {
-  btn.addEventListener("click", VideoPlayerController);
-});
-function VideoPlayerController(event) {
-  const ClickedPlayBtn =
-    event.target; /*getting specifically clicked playBtn*/
-  const VideoToBePlayedContainer = ClickedPlayBtn.parentElement.parentElement;
+// playPauseBtn.forEach((btn) => {
+//   btn.addEventListener("click", VideoPlayerController);
+// });
+// function VideoPlayerController(event) {
+//   const ClickedPlayBtn =
+//     event.target; /*getting specifically clicked playBtn*/
+//   const VideoToBePlayedContainer = ClickedPlayBtn.parentElement.parentElement;
 
-  //getting specific video to be played
-  const videoToBePlayed = VideoToBePlayedContainer.querySelector(
-    "#video-element"
-  );
+//   //getting specific video to be played
+//   const videoToBePlayed = VideoToBePlayedContainer.querySelector(
+//     "#video-element"
+//   );
 
-  //playing and pausing the videos
-  if (videoToBePlayed.paused) {
-    ClickedPlayBtn.classList.add("pause-btn");
-    videoToBePlayed.play();
-  } else {
-    videoToBePlayed.pause();
-    ClickedPlayBtn.classList.remove("pause-btn");
-  }
+//   //playing and pausing the videos
+//   if (videoToBePlayed.paused) {
+//     ClickedPlayBtn.classList.add("pause-btn");
+//     videoToBePlayed.play();
+//   } else {
+//     videoToBePlayed.pause();
+//     ClickedPlayBtn.classList.remove("pause-btn");
+//   }
 
   // changing the playBtn from pause back to play after the video has stopped playing
-  videoToBePlayed.onended = () => {
+ /* videoToBePlayed.onended = () => {
     ClickedPlayBtn.classList.remove("pause-btn");
   };
   //WORKING ON THE VIDEO PROGRESS-BAR
@@ -69,7 +69,7 @@ function VideoPlayerController(event) {
     specificVideoProgressBar.style.width =
      (videoProgressValue / videoDuration) * 100 + "%";
   }
-}
+} */
 //AUDIO PLAYER
   //close player
 closePlayer.addEventListener('click', ()=>{
