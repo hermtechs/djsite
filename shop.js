@@ -145,6 +145,8 @@ function addItemToCart(event){
  var prodPrice = productContainer.querySelector('.prod-price').innerText;
  var prodImageUrl = productContainer.querySelector('.product-image').src;
  var productName = productContainer.querySelector('.product-name').innerText;
+
+
  addProductToCart(productName, prodImageUrl, prodPrice)
 // fndTotal();
 openAndCloseCart();
@@ -153,7 +155,10 @@ openAndCloseCart();
 
 function addProductToCart(productName, prodImageUrl, prodPrice){
     var  cartItemRow = document.createElement('article');
-  const cartProdTitle = cartContainer.querySelectorAll('.product-title');
+
+    /* **TO-DO*** 
+    //write a function to check if item already in cart 
+    ***TO DO***/
 
     cartRowContents = `<article class="cart-item">
     <img src="${prodImageUrl}" alt="product" class="prod-image">
@@ -167,20 +172,11 @@ function addProductToCart(productName, prodImageUrl, prodPrice){
       <p class="item-quantity">1</p>
       <i class="fas fa-chevron-down"></i>
    </div>` ;
-  //check if item already in cart
-const productTitles = document.querySelectorAll('.product-name');
-productTitles.forEach(title=>{
-if(title.innerText==productName){
-    alert('product already in cart');
-    return;
-}
-
-})
 
    cartItemRow.innerHTML = cartRowContents
    cartItemsContainer.append(cartItemRow);
-   setTimeout(updateTotal,3000)
-
+   
+   setTimeout(updateTotal,3000) //update total
 
     //increase/ reduce Item quantity
     const increaseItemQuantityBtns = document.querySelectorAll('.fa-chevron-up');
