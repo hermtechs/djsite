@@ -820,6 +820,7 @@ cursor: pointer;
 .prod-image{
   width: 75px;
   height: 75px;
+  object-fit:contain;
 }
 .close-cart{
   position: relative;
