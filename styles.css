@@ -307,9 +307,10 @@ video {
 }
 .audio-player-header{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 1rem;
-  margin-right: 5rem;
+  margin-right: 4rem;
+  margin-left: 2rem;
 }
 .audio-ctrls{
   display: flex;
