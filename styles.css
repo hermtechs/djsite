@@ -289,7 +289,7 @@ video {
 .audio-player{
   padding: 1rem;
   position: sticky;
-  background: rgb(204, 204, 235);
+  background: radial-gradient(rgb(23, 12, 122),rgb(12, 12, 22));
   top: 0.1;
   left: 0;
   right: 0;
@@ -297,18 +297,19 @@ video {
   bottom: 0.0001rem;
   z-index: 8000;
   color: #000;
-  border-top: 1px solid blue;
+  border-top: 2px solid rgb(47, 47, 56);
   margin-top: 0.5rem;
   /* margin-bottom: -15rem; */
   transition: 200ms ease-in-out;
   transform-origin: bottom;
   display: none;
-  color: rgb(49, 49, 172);
+  color: rgb(204, 204, 241);
 }
 .audio-player-header{
   display: flex;
   justify-content: space-around;
   padding-bottom: 1rem;
+  margin-right: 5rem;
 }
 .audio-ctrls{
   display: flex;
@@ -320,9 +321,13 @@ video {
   align-items: center;
 }
 .controls-audio>*{
-  margin-right: 1.4rem;
+  margin-right: 3rem;
   cursor: pointer;
 }
+.audio-play-btn{
+  font-size: 1.5rem;
+}
+
 .progress-bar{
   display: flex;
   justify-content: center;
@@ -358,8 +363,9 @@ video {
 .thumbnail{
   max-width: 50px;
   min-height: 50px;
+  max-height: 50px;
   margin-right: 2em; 
-  border-radius: .2em;
+  border-radius: .8em;
 }
 /* ALBUMS SECTION */
 .albums-titles{background: rgb(204, 204, 235);}
