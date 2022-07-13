@@ -185,4 +185,28 @@ nav a:hover:after{
     padding: 1rem 2rem;
     line-height: 1.5;
     margin-top: 1rem;
+    transition: background 250ms ease-in;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+.appointment:hover{
+  background: #e8e0f4;
+}
+/* .dropdown-hide{
+  display: none;
+} */
+
+  .dropdown-icon{
+  transition: 250ms ease-in;  
+  transform: scale(1,0);  
+  transform-origin: top;
+  position: absolute;
+  right: 0;
+  margin-top: -0.4rem;
+  padding:0rem 1rem 1rem 1.5rem;
+  color: #1717c5
+}
+.appointments-container .appointment #show{
+  display: block;
 }
