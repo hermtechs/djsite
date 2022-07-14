@@ -210,3 +210,6 @@ nav a:hover:after{
 .appointments-container .appointment #show{
   display: block;
 }
+.show{
+  display: block !important;
+}
