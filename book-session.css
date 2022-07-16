@@ -189,6 +189,7 @@ nav a:hover:after{
     position: relative;
     z-index: 10;
     cursor: pointer;
+    display: block;
 }
 .appointment:hover{
   background: #e8e0f4;
@@ -198,7 +199,7 @@ nav a:hover:after{
 } */
 
   .dropdown-icon{
-  transition: 250ms ease-in;  
+  transition: 200ms ease-in;  
   transform: scale(1,0);  
   transform-origin: top;
   position: absolute;
