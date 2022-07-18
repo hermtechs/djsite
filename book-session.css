@@ -214,3 +214,37 @@ nav a:hover:after{
 .show{
   display: block !important;
 }
+
+.days-container{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+}
+.days-container>*{
+  min-width: 10.3rem;
+  padding: 1rem;
+  background: #eee;
+  margin: 0.5rem;
+}
+.days-container p{
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.btns-container{
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+.btns-container .previous{
+  margin-right: 4rem;
+
+}
+.btns-container>*{
+  background: #135b9d;
+  color: rgb(245, 240, 240);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.2em;
+}
+.btns-container i{
+  font-size: 0.8rem;
+}
