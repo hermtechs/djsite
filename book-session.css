@@ -222,14 +222,17 @@ nav a:hover:after{
   align-items: center;
 }
 .days-container>*{
-  min-width: 10.3rem;
+  min-width: 8.3rem;
   padding: 1rem;
-  background: #eee;
+  background: rgb(243, 240, 251);
   margin: 0.5rem;
 }
-.days-container p{
+.days-container span{
   padding: 0.3rem;
   cursor: pointer;
+  display: block;
+  color:#08021e;
+  /* border:1px solid #135b9d; */
 }
 .btns-container{
   margin-top: 1rem;
@@ -237,7 +240,6 @@ nav a:hover:after{
 }
 .btns-container .previous{
   margin-right: 4rem;
-
 }
 .btns-container>*{
   background: #135b9d;
@@ -247,4 +249,8 @@ nav a:hover:after{
 }
 .btns-container i{
   font-size: 0.8rem;
+}
+.selected-time{
+  border: 1px solid #1717c5;
+  border-radius: 0.2em;
 }

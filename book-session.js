@@ -50,3 +50,57 @@ for(var i=0; i<appointments.length; i++){
     }
 }
 }
+
+//MAKE AN APPOINTMENT
+const days = document.querySelectorAll('.day');
+
+const times = document.querySelectorAll('.time')
+console.log(times);
+times.forEach(time=>time.addEventListener('click', createEvent))
+
+function createEvent(e){
+    const clickedTime = e.currentTarget;
+    // clickedTime.classList.add('selected-time')
+    const dayOfAppointment = clickedTime.parentElement;
+    // console.log(dayOfAppointment);
+    const selectedTime = dayOfAppointment.querySelectorAll('.time');
+    // console.log(selectedTime)
+    const duration = document.querySelector('.duration').innerText
+    console.log(duration);
+}
+
+// const today = new Date();
+// console.log(today)
+// const timeNow = today.getHours();
+// console.log(timeNow)
+const daysOfWeek = document.querySelectorAll('.day-of-week')
+const dates = document.querySelectorAll('.date')
+// const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
+// console.log(date, dayOfWeek)
+// const dateInWords = `${date} 2022`
+// console.log(dateInWords)
+// const dateInMilliseconds = Date.parse(dateInWords)
+// console.log(dateInMilliseconds)
+
+// console.log(dayOfWeek)
+function removeOutOfDate(){
+    // console.log(day.innerText)
+const today = new Date();
+const curentDateInMilliseconds = Date.parse(today);
+const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}` ;
+console.log(today)
+
+    dates.forEach(date=>{
+      const eachdateAsString =  `${date.innerText} 2022 ${currentTime}`
+    //   console.log(dateAsString)
+    console.log(eachdateAsString)
+    dateInMilliseconds = Date.parse(eachdateAsString)
+    console.log(dateInMilliseconds)
+    if(dateInMilliseconds<curentDateInMilliseconds){
+        // console.log('true');
+        date.parentElement.remove();
+    }
+    })
+
+}
+removeOutOfDate()
