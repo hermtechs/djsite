@@ -5,33 +5,7 @@ appointments.forEach(appointment=>{
  appointment.addEventListener('click', dropDown)
  appointment.style.display = 'block'
 })
-/*
-function dropDown(event){
-const clickedElement = event.currentTarget;
-// appointments.forEach(appointment=>appointment.style.display = 'none');
-for(var i=0; i<appointments.length; i++){
-    const eachAppointment = appointments[i];
-    eachAppointment.style.display = 'none';
-    clickedElement.style.display = 'block';
-    clickedElement.querySelector('.dropdown-icon').style.transform = 'scale(1.1)'
-}
 
-
-}
-dropDownIcon.forEach(icon=>icon.addEventListener('click', (event)=>{
-    // eachAppointment[2].style.display = 'block';
-    const allAppointmentElements = [...appointments]
-    // console.log(eachAppointment);
-   const hiddenElements = allAppointmentElements.filter(el=>el.style.display==='none')
-//   console.log(hiddenElements);
-hiddenElements.forEach(element=>{
-    element.classList.add('show')
-    // console.log(element) 
-event.currentTarget.style.transform= 'scale(1,0)'
-
-});
-
-}))*/
 
 function dropDown(event){
 const clickedElement = event.currentTarget;
@@ -86,7 +60,7 @@ const dates = document.querySelectorAll('.date')
 function removeOutOfDate(){
     // console.log(day.innerText)
 const today = new Date();
-const curentDateInMilliseconds = Date.parse(today);
+const curentDateInMs = Date.parse(today);
 const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}` ;
 console.log(today)
 
@@ -94,9 +68,9 @@ console.log(today)
       const eachdateAsString =  `${date.innerText} 2022 ${currentTime}`
     //   console.log(dateAsString)
     console.log(eachdateAsString)
-    dateInMilliseconds = Date.parse(eachdateAsString)
-    console.log(dateInMilliseconds)
-    if(dateInMilliseconds<curentDateInMilliseconds){
+    dateInMs = Date.parse(eachdateAsString) //convert to milliseconds(ms)
+    console.log(dateInMs)
+    if(dateInMs<curentDateInMs){
         // console.log('true');
         date.parentElement.remove();
     }
@@ -104,3 +78,6 @@ console.log(today)
 
 }
 removeOutOfDate()
+const time = '9:00am'
+const time1 =  Date.parse(time);
+console.log(time1);
