@@ -195,14 +195,15 @@ nav a:hover:after{
   letter-spacing: 4px;
   padding: 0.12em 1em 0.12em 1em;
   margin-top: 2rem;
-  border-radius: 4.5px;
-  background: rgb(13, 13, 112);
+  border-radius: 0.1rem;
+  background: rgb(27, 48, 234);
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  font-size: 0.82rem;
+  font-size: 1.1rem;
   transition: 250ms ease-in;
   user-select: none;
+  color: #eee;
 }
 .btn:hover {
   transform: scale(1.05);
