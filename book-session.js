@@ -1,5 +1,6 @@
 const appointments = document.querySelectorAll('.appointment');
 const dropDownIcons = document.querySelectorAll('.dropdown-icon');
+const daysContainer = document.querySelector('.days-container');
 
 appointments.forEach(appointment=>{
  appointment.addEventListener('click', dropDown)
@@ -27,9 +28,8 @@ for(var i=0; i<appointments.length; i++){
 
 //MAKE AN APPOINTMENT
 const days = document.querySelectorAll('.day');
-
 const times = document.querySelectorAll('.time')
-console.log(times);
+// console.log(times);
 times.forEach(time=>time.addEventListener('click', createEvent))
 
 function createEvent(e){
@@ -43,41 +43,79 @@ function createEvent(e){
     console.log(duration);
 }
 
-// const today = new Date();
-// console.log(today)
-// const timeNow = today.getHours();
-// console.log(timeNow)
-const daysOfWeek = document.querySelectorAll('.day-of-week')
-const dates = document.querySelectorAll('.date')
-// const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
-// console.log(date, dayOfWeek)
-// const dateInWords = `${date} 2022`
-// console.log(dateInWords)
-// const dateInMilliseconds = Date.parse(dateInWords)
-// console.log(dateInMilliseconds)
+const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
 
-// console.log(dayOfWeek)
-function removeOutOfDate(){
-    // console.log(day.innerText)
 const today = new Date();
+// console.log(today)
+
+//comparing each date in DOM with current date and finding the difference btn the 2
+function removeOutOfDate(){
+const dates = document.querySelectorAll('.date')
 const curentDateInMs = Date.parse(today);
 const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}` ;
-console.log(today)
-
     dates.forEach(date=>{
-      const eachdateAsString =  `${date.innerText} 2022 ${currentTime}`
-    //   console.log(dateAsString)
-    console.log(eachdateAsString)
-    dateInMs = Date.parse(eachdateAsString) //convert to milliseconds(ms)
+      const eachDateAsString =  `${date.innerText} ${currentTime}`
+    dateInMs = Date.parse(eachDateAsString) //convert to milliseconds(ms)
     console.log(dateInMs)
     if(dateInMs<curentDateInMs){
-        // console.log('true');
-        date.parentElement.remove();
+        date.parentElement.parentElement.remove();
     }
     })
-
 }
-removeOutOfDate()
-const time = '9:00am'
-const time1 =  Date.parse(time);
-console.log(time1);
+
+const dayOfWeek = today.getDay(); 
+const month = today.getMonth();
+console.log(month)
+const dayofMonth = today.getDate();
+const year = today.getFullYear();
+const dateString = `${month} ${dayofMonth} ${year}`;
+// console.log(dateString)
+// console.log(month)
+const daysInMonth = (year, month)=>{
+    return new Date(year, month+1,0).getDate(); //+1 to month cuz counting months starts from zero
+ }
+const currentMonthDays = daysInMonth(year,month);
+
+const weekDays = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
+const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function createAppointmentsForMonth(){
+for(var i=1; i<=currentMonthDays; i++){
+    // console.log(i)
+    const calendar = ` <div class="day">
+    <h5 class="day-of-week">${weekDays[dayOfWeek]}</h5>
+    <h6 class="date">${i} ${months[month]} ${year}</h6>
+     <div class="times">
+      <span  class="time">8:00am</span>
+      <span class="time">9:00am</span>
+      <span class="time">10:00am</span>
+      <span class="time">11:00am</span>
+      <span class="time">12:00pm</span>
+      <span class="time">1:00pm</span>
+      <span class="time">2:00pm</span>
+      <span class="time">3:00pm</span>
+      <span class="time">4:00pm</span>
+      <span class="time">5:00pm</span>
+     </div>
+     </div> `
+
+    const dayElement = document.createElement('div');
+    dayElement.innerHTML = calendar; 
+    daysContainer.appendChild(dayElement)
+    }
+    updateDayOfWeek()
+    // removeOutOfDate()
+}
+createAppointmentsForMonth();
+
+//getting date from DOM and updating day of the week for each date
+function updateDayOfWeek(){
+    const dates = document.querySelectorAll('.date');
+    dates.forEach((date)=>{
+        const eachDayDate = date.innerText;
+        const eachDay  = new Date(eachDayDate).getDay()
+        // console.log(eachDay)
+        const dayOfWeek = weekDays[eachDay]
+        const dayofWeekElement = date.parentElement.querySelector('.day-of-week')
+        dayofWeekElement.innerText = dayOfWeek;
+    })
+}
