@@ -19,7 +19,7 @@ for(var i=0; i<appointments.length; i++){
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1.1)') 
     }
     else{
-        console.log('false')
+        // console.log('false')
     eachAppointment.style.display = 'block'; 
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1,0)') 
     }

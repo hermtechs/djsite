@@ -228,62 +228,6 @@ nav a:hover:after{
   mix-blend-mode: overlay;
 }
 
-/* LATEST VIDEOS SECTION */
-
-.video-section .heading {
-  margin-top: 4rem;
-  padding-top: 5rem;
-}
-video {
-  max-width: 100%;
-}
-.video-section {
-  width: 100%;
-  height: 100%;
-  padding: 3.5rem 0.6rem 0.6rem 0.6rem;
-  color: blue;
-  background: rgb(224, 219, 219);
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-.video-container > * {
-  flex-basis: 45%;
-   min-width: 19rem;
-  max-width: 100rem;
-  margin-bottom: 1.4rem;
-}
-@media (min-width: 400px) {
-  .video-container > * {
-    min-width: 25rem;
-  }
-} 
-
-
-/* LISTEN ON SPOTIFY LINK */
-.listen-on-spotify {
-  background: rgb(11, 11, 29);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 1.5rem;
-  margin-top: -40px;
-}
-
-.listen-on-spotify h4{
-  color: #fff;
-}
-
-.listen-on-spotify img{
-  max-width: 100%;
-  height: 80px;
-}
 
 /* audio controls */
 .audio-player{
@@ -369,7 +313,10 @@ video {
   border-radius: .8em;
 }
 /* ALBUMS SECTION */
-.albums-titles{background: rgb(204, 204, 235);}
+.albums-titles{
+  background: rgb(204, 204, 235);
+  margin-top: 3.1rem;
+}
 .music-audio-sections{
   display: flex;
   justify-content: center;
