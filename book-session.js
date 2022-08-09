@@ -1,7 +1,8 @@
 const appointments = document.querySelectorAll('.appointment');
 const dropDownIcons = document.querySelectorAll('.dropdown-icon');
 const daysContainer = document.querySelector('.days-container');
-
+// const dateContainer = document.querySelectorAll('.date-container');
+// console.log(dateContainer)
 appointments.forEach(appointment=>{
  appointment.addEventListener('click', dropDown)
  appointment.style.display = 'block'
@@ -56,11 +57,12 @@ const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSecond
     dates.forEach(date=>{
       const eachDateAsString =  `${date.innerText} ${currentTime}`
     dateInMs = Date.parse(eachDateAsString) //convert to milliseconds(ms)
-    console.log(dateInMs)
+    // console.log(dateInMs)
     if(dateInMs<curentDateInMs){
-        date.parentElement.parentElement.remove();
+        date.parentElement.parentElement.parentElement.remove();
     }
     })
+    
 }
 
 const dayOfWeek = today.getDay(); 
@@ -82,8 +84,10 @@ function createAppointmentsForMonth(){
 for(var i=1; i<=currentMonthDays; i++){
     // console.log(i)
     const calendar = ` <div class="day">
+    <div class="date-container">
     <h5 class="day-of-week">${weekDays[dayOfWeek]}</h5>
     <h6 class="date">${i} ${months[month]} ${year}</h6>
+    </div>
      <div class="times">
       <span  class="time">8:00am</span>
       <span class="time">9:00am</span>
@@ -98,12 +102,15 @@ for(var i=1; i<=currentMonthDays; i++){
      </div>
      </div> `
 
-    const dayElement = document.createElement('div');
+    var dayElement = document.createElement('div');
     dayElement.innerHTML = calendar; 
     daysContainer.appendChild(dayElement)
+    dayElement.addEventListener('click', showAppointmentTime)
     }
     updateDayOfWeek()
-    // removeOutOfDate()
+    removeOutOfDate()
+    // dateContainer.push(dayElement);
+    // console.log(dateContainer);
 }
 createAppointmentsForMonth();
 
@@ -118,4 +125,16 @@ function updateDayOfWeek(){
         const dayofWeekElement = date.parentElement.querySelector('.day-of-week')
         dayofWeekElement.innerText = dayOfWeek;
     })
+}
+
+function showAppointmentTime(event){
+    // alert("hello")
+    const timesToDisplay = event.currentTarget.parentElement.querySelectorAll('.times');
+    // timesToDisplay.style.display = "block";
+    const clickedTimesElement = event.currentTarget.querySelector('.times')
+    // console.log(timesToDisplay)
+    timesToDisplay.forEach(times=>{
+        times.style.display = 'none';
+        clickedTimesElement.style.display = "block"
+        })
 }

@@ -194,6 +194,17 @@ nav a:hover:after{
 .appointment:hover{
   background: #e8e0f4;
 }
+.date-container{
+  /* background: #4365fa; */
+  color: #1717c5;
+  font-weight: 900;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.times{
+  display: none;
+}
+
 /* .dropdown-hide{
   display: none;
 } */
@@ -218,13 +229,15 @@ nav a:hover:after{
 .days-container{
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  align-items: center;
+  justify-content: center;
+  /* justify-items: center; */
+  align-items: flex-start;
 }
 .days-container>*{
-  min-width: 8.3rem;
-  padding: 1rem;
-  background: rgb(243, 240, 251);
+  max-width: 6.8rem;
+  border-radius: 0.5rem;
+  padding: 0.65rem;
+  background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   margin: 0.5rem;
 }
 .days-container span{
