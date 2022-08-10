@@ -47,7 +47,7 @@ function createEvent(e){
 const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
 
 const today = new Date();
-// console.log(today)
+console.log(today)
 
 //comparing each date in DOM with current date and finding the difference btn the 2
 function removeOutOfDate(){
@@ -56,6 +56,7 @@ const curentDateInMs = Date.parse(today);
 const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}` ;
     dates.forEach(date=>{
       const eachDateAsString =  `${date.innerText} ${currentTime}`
+    //   console.log(eachDateAsString)
     dateInMs = Date.parse(eachDateAsString) //convert to milliseconds(ms)
     // console.log(dateInMs)
     if(dateInMs<curentDateInMs){
@@ -89,16 +90,16 @@ for(var i=1; i<=currentMonthDays; i++){
     <h6 class="date">${i} ${months[month]} ${year}</h6>
     </div>
      <div class="times">
-      <span  class="time">8:00am</span>
-      <span class="time">9:00am</span>
-      <span class="time">10:00am</span>
-      <span class="time">11:00am</span>
-      <span class="time">12:00pm</span>
-      <span class="time">1:00pm</span>
-      <span class="time">2:00pm</span>
-      <span class="time">3:00pm</span>
-      <span class="time">4:00pm</span>
-      <span class="time">5:00pm</span>
+      <span  class="time">08:00 AM</span>
+      <span class="time">09:00 AM</span>
+      <span class="time">10:00 AM</span>
+      <span class="time">11:00 AM</span>
+      <span class="time">12:00 PM</span>
+      <span class="time">01:00 PM</span>
+      <span class="time">02:00 PM</span>
+      <span class="time">03:00 PM</span>
+      <span class="time">04:00 PM</span>
+      <span class="time">05:00 PM</span>
      </div>
      </div> `
 
@@ -137,4 +138,46 @@ function showAppointmentTime(event){
         times.style.display = 'none';
         clickedTimesElement.style.display = "block"
         })
+    const timeToSelect = clickedTimesElement.querySelectorAll('.time');
+    // console.log(selectTime);
+    timeToSelect.forEach(eachTime=>{
+        eachTime.addEventListener('click', createTime);
+    })
+}
+
+function convertTo24hrClock(time12h){
+        const [time, modifier] = time12h.split(' ');
+      
+        let [hours, minutes] = time.split(':');
+      
+        if (hours === '12') {
+          hours = '00';
+        }
+      
+        if (modifier === 'PM') {
+          hours = parseInt(hours, 10) + 12;
+        }
+      
+        return `${hours}:${minutes}`;
+      }
+
+function createTime(e){
+        // time.style.border = "1px solid blue"
+        // console.log(eachTime)
+    const startingTime = e.currentTarget;
+    const selectedTimeString = startingTime.innerText;
+    //convert selected time to 24/hr clock
+    // const y = convertTo24hrClock(selectedTimeString);
+    // console.log(y)
+
+    const dateOfSelectedTime = startingTime.parentElement.parentElement.querySelector('.date').innerText;
+    const dayOfselectedTime = startingTime.parentElement.parentElement.querySelector('.day-of-week').innerText
+    const fullDateOfSelectedTime = `${dateOfSelectedTime} ${selectedTimeString}`;
+    console.log(fullDateOfSelectedTime)
+   const x = Date.parse(fullDateOfSelectedTime)
+    console.log(x);
+    const newTime = x+10800000;
+    console.log(newTime)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    // if(eachTime)
+
 }

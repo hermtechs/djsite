@@ -237,7 +237,7 @@ nav a:hover:after{
   max-width: 6.8rem;
   border-radius: 0.5rem;
   padding: 0.65rem;
-  background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background: linear-gradient(to top, #ebdce7 0%, #a6c1ee 100%);
   margin: 0.5rem;
 }
 .days-container span{
