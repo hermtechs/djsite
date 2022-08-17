@@ -1,6 +1,7 @@
 const appointments = document.querySelectorAll('.appointment');
 const dropDownIcons = document.querySelectorAll('.dropdown-icon');
 const daysContainer = document.querySelector('.days-container');
+const chooseDate = document.querySelector('.choose-date')
 // const dateContainer = document.querySelectorAll('.date-container');
 // console.log(dateContainer)
 appointments.forEach(appointment=>{
@@ -8,46 +9,60 @@ appointments.forEach(appointment=>{
  appointment.style.display = 'block'
 })
 
+let appointmentData = [];
 
 function dropDown(event){
 const clickedElement = event.currentTarget;
 for(var i=0; i<appointments.length; i++){
     const eachAppointment = appointments[i];
+    const appointmentDuration = clickedElement.querySelector('.duration').innerText;
+    
     if(eachAppointment.style.display=='block'&&clickedElement.style.display=='block'){
         // console.log('true')
     eachAppointment.style.display = 'none'; 
     clickedElement.style.display = 'block';
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1.1)') 
+     chooseDate.style.display = 'block'   
+
+    // appointmentData.push(appointmentDuration);
+    appointmentData = [appointmentDuration]
+    // appointmentData.push(appointmentDuration)
     }
     else{
         // console.log('false')
     eachAppointment.style.display = 'block'; 
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1,0)') 
+    chooseDate.style.display = 'none'   
+
+    appointmentData = [];
     }
 }
+// console.log(appointmentData)
 }
 
 //MAKE AN APPOINTMENT
 const days = document.querySelectorAll('.day');
 const times = document.querySelectorAll('.time')
 // console.log(times);
-times.forEach(time=>time.addEventListener('click', createEvent))
+// times.forEach(time=>time.addEventListener('click', createEvent))
 
-function createEvent(e){
-    const clickedTime = e.currentTarget;
-    // clickedTime.classList.add('selected-time')
-    const dayOfAppointment = clickedTime.parentElement;
-    // console.log(dayOfAppointment);
-    const selectedTime = dayOfAppointment.querySelectorAll('.time');
-    // console.log(selectedTime)
-    const duration = document.querySelector('.duration').innerText
-    console.log(duration);
-}
+// function createEvent(e){
+//     const clickedTime = e.currentTarget;
+//     // clickedTime.classList.add('selected-time')
+//     const dayOfAppointment = clickedTime.parentElement;
+//     // console.log(dayOfAppointment);
+//     const selectedTime = dayOfAppointment.querySelectorAll('.time');
+//     // console.log(selectedTime)
+//     var appointmentDuration = document.querySelector('.duration').innerText
+//     console.log(appointmentDuration);
+//     appointmentData.push(appointmentDuration);
+//     console.log(appointmentData)
+// }
 
 const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
 
 const today = new Date();
-console.log(today)
+// console.log(today)
 
 //comparing each date in DOM with current date and finding the difference btn the 2
 function removeOutOfDate(){
@@ -68,14 +83,14 @@ const currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSecond
 
 const dayOfWeek = today.getDay(); 
 const month = today.getMonth();
-console.log(month)
+// console.log(month)
 const dayofMonth = today.getDate();
 const year = today.getFullYear();
 const dateString = `${month} ${dayofMonth} ${year}`;
 // console.log(dateString)
 // console.log(month)
 const daysInMonth = (year, month)=>{
-    return new Date(year, month+1,0).getDate(); //+1 to month cuz counting months starts from zero
+    return new Date(year, month+1,0).getDate(); //+1 to month cuz js starts counting months from zero but humans from 1
  }
 const currentMonthDays = daysInMonth(year,month);
 
@@ -128,56 +143,64 @@ function updateDayOfWeek(){
     })
 }
 
+//showing times of the day after clicking on the date of the week
 function showAppointmentTime(event){
-    // alert("hello")
+    
     const timesToDisplay = event.currentTarget.parentElement.querySelectorAll('.times');
-    // timesToDisplay.style.display = "block";
+   
     const clickedTimesElement = event.currentTarget.querySelector('.times')
-    // console.log(timesToDisplay)
+ 
     timesToDisplay.forEach(times=>{
         times.style.display = 'none';
         clickedTimesElement.style.display = "block"
         })
     const timeToSelect = clickedTimesElement.querySelectorAll('.time');
-    // console.log(selectTime);
+    // console.log(timeToSelect);
     timeToSelect.forEach(eachTime=>{
         eachTime.addEventListener('click', createTime);
     })
 }
 
-function convertTo24hrClock(time12h){
-        const [time, modifier] = time12h.split(' ');
-      
-        let [hours, minutes] = time.split(':');
-      
-        if (hours === '12') {
-          hours = '00';
-        }
-      
-        if (modifier === 'PM') {
-          hours = parseInt(hours, 10) + 12;
-        }
-      
-        return `${hours}:${minutes}`;
-      }
-
 function createTime(e){
-        // time.style.border = "1px solid blue"
-        // console.log(eachTime)
+
     const startingTime = e.currentTarget;
+    // startingTime.parentElement.parentElement.style.display = "none"
+    // console.log(startingTime.parentElement.parentElement)
+    const allDateElements = document.querySelectorAll('.day');
+    allDateElements.forEach(element=>{element.parentElement.style.display='none'})
+    startingTime.parentElement.parentElement.parentElement.style.display = "block"
+    // console.log(startingTime)
     const selectedTimeString = startingTime.innerText;
-    //convert selected time to 24/hr clock
-    // const y = convertTo24hrClock(selectedTimeString);
-    // console.log(y)
 
+    const timeToSelect = startingTime.parentElement.querySelectorAll('.time');
     const dateOfSelectedTime = startingTime.parentElement.parentElement.querySelector('.date').innerText;
-    const dayOfselectedTime = startingTime.parentElement.parentElement.querySelector('.day-of-week').innerText
-    const fullDateOfSelectedTime = `${dateOfSelectedTime} ${selectedTimeString}`;
-    console.log(fullDateOfSelectedTime)
-   const x = Date.parse(fullDateOfSelectedTime)
-    console.log(x);
-    const newTime = x+10800000;
-    console.log(newTime)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-    // if(eachTime)
+    // console.log(dateOfSelectedTime)
+    
+        // (converted to milliseconds by Date.parse())
+    const fullDateBasedOnTimeClicked =Date.parse(`${dateOfSelectedTime} ${selectedTimeString}`);
+   
+    const millisecondsInoneHour = 3600000; 
 
+    //appointmentData is an array where we keep pushing data about users choices
+    const newTime = fullDateBasedOnTimeClicked+(appointmentData[0]*millisecondsInoneHour);
+
+    for(var i=0; i<timeToSelect.length; i++){
+
+        const eachTime = timeToSelect[i]
+
+        // (converted to milliseconds by Date.parse())
+        const fullDateforEachSelectedTime = Date.parse(`${dateOfSelectedTime} ${eachTime.innerText}`)
+    
+    // checking time that is in range of user's selected time and total duration of his selected appointment
+        if(fullDateforEachSelectedTime<=newTime&&fullDateforEachSelectedTime>=fullDateBasedOnTimeClicked){
+            // console.log(fullDateOfSelectedTime)
+            eachTime.classList.add('selected-time');
+        }
+    }
+    const selectedHours =[...document.querySelectorAll('.selected-time')]
+    appointmentData.push(selectedHours);
+    appointmentData.push(dateOfSelectedTime);
+    console.log(appointmentData[0])
+    // const selectedTime = [, dateOfSelectedTime];
+    // console.log(selectedTime)
 }

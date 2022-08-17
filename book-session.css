@@ -264,6 +264,9 @@ nav a:hover:after{
   font-size: 0.8rem;
 }
 .selected-time{
-  border: 1px solid #1717c5;
-  border-radius: 0.2em;
+  background: #b2f8d0;
+  border-radius: 0.1em;
+}
+.choose-date{
+  display: none;
 }
