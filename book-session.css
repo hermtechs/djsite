@@ -169,6 +169,18 @@ nav a:hover:after{
     text-transform: unset;
     padding-top: 1rem;
 }
+.steps{
+  color: #8e9aeb;
+  margin-top: 1rem;
+}
+.step-no{
+  margin: unset !important ;
+  padding: 0.1rem 0.4rem !important;
+  border: 1px solid #fff;
+  background: #4a84e2;
+  border-radius: 50%;
+  color: #fff !important;
+}
 .appointments{
     display: flex;
     align-items: center;
@@ -288,7 +300,7 @@ nav a:hover:after{
   transform: scale(1,0);
 }
 .details{
-  background: #045DE9;;
+  background: #045DE9;
   padding: 1.5rem;
   /* opacity: 0.98; */
 }
