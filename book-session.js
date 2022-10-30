@@ -6,6 +6,23 @@ const confirmationDetailsContainer = document.querySelector('.confirmation-detai
 const cancelAppointment = document.querySelector('.cancel');
 const proceedWithAppointment =document.querySelector('.proceed');
 
+//firebase code ***
+window.onload = initializeApp();
+    // Initialize Firebase
+    function initializeApp(){
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxBDsBphVbYDaKgLXVOYl46Wn7gCoSBtM",
+            authDomain: "asapy-site-data.firebaseapp.com",
+            projectId: "asapy-site-data",
+            storageBucket: "asapy-site-data.appspot.com",
+            messagingSenderId: "454229246653",
+            appId: "1:454229246653:web:03a88b447dfe611cc3add4"
+          };
+    firebase.initializeApp(firebaseConfig);
+    }
+// firebase code ***    
+
+
 // const dateContainer = document.querySelectorAll('.date-container');
 // console.log(dateContainer)
 appointments.forEach(appointment=>{
@@ -212,31 +229,26 @@ function createTime(e){
 }
 
 function confirmAppointmentAndProceed(){
-    // initialising below variables after executing the createAppointmentsForMonth() function
-    const allhoursforAllDays = document.querySelectorAll('.time');
-    const javascriptGeneratedDaysContainers = document.querySelectorAll('.days-container')
 
+    const confirmedDateElement = document.querySelector('.confirmed-date');
+    const confirmedDurationElement = document.querySelector('.confirmed-duration')
+    const confirmedStartingTimeElement = document.querySelector('.starting-time');
+    const confirmedEndingTimeElement = document.querySelector('.ending-time');
     confirmationDetailsContainer.style.transform = "scale(1)"
 
+    confirmedDateElement.innerText=`${weekDays[dayOfWeek]}, ${appointmentData[2]}`;
+    confirmedDurationElement.innerText = appointmentData[0]
+    confirmedStartingTimeElement.innerText = appointmentData[1][0].innerText
+    confirmedEndingTimeElement.innerText = appointmentData[1][appointmentData[1].length-1].innerText
+
+    // if user decides to confirm appointment schedule
+    // proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,confirmedEndingTime,confirmedDuration))
+    addAppointmentDataToFirebase();
+    //incase user decides to cancel without confirming
     cancelAppointment.addEventListener('click', ()=>{
+        // resetting everything by refreshing the page
         window.location.reload();
-    // confirmationDetailsContainer.style.transform = "scale(1,0)"
-
-    // appointmentData = [];
-
-    // removing selected-time class from all selected hours (resetting all back to default)
-    // appointments.forEach(appointment=>appointment.style.display = 'block'); 
-
-    // dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1,0)') 
-
-    // allhoursforAllDays.forEach(hour=>hour.classList.remove('selected-time'));
-
-    // javascriptGeneratedDaysContainers.forEach(times=>times.style.display="none")
-        // console.log(appointmentData);
-
     })
-
-    proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase)
 }
 
 function addAppointmentDataToFirebase(){
