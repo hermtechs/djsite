@@ -3,6 +3,9 @@ const dropDownIcons = document.querySelectorAll('.dropdown-icon');
 const daysContainer = document.querySelector('.days-container');
 const chooseDate = document.querySelector('.choose-date')
 const confirmationDetailsContainer = document.querySelector('.confirmation-details')
+const cancelAppointment = document.querySelector('.cancel');
+const proceedWithAppointment =document.querySelector('.proceed');
+
 // const dateContainer = document.querySelectorAll('.date-container');
 // console.log(dateContainer)
 appointments.forEach(appointment=>{
@@ -19,7 +22,7 @@ for(var i=0; i<appointments.length; i++){
     const appointmentDuration = clickedElement.querySelector('.duration').innerText;
     
     if(eachAppointment.style.display=='block'&&clickedElement.style.display=='block'){
-        // console.log('true')
+ 
     eachAppointment.style.display = 'none'; 
     clickedElement.style.display = 'block';
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1.1)') 
@@ -27,10 +30,10 @@ for(var i=0; i<appointments.length; i++){
 
     // appointmentData.push(appointmentDuration);
     appointmentData = [appointmentDuration]
-    // appointmentData.push(appointmentDuration)
+   
     }
     else{
-        // console.log('false')
+       
     eachAppointment.style.display = 'block'; 
     dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1,0)') 
     chooseDate.style.display = 'none'   
@@ -44,21 +47,6 @@ for(var i=0; i<appointments.length; i++){
 //MAKE AN APPOINTMENT
 const days = document.querySelectorAll('.day');
 const times = document.querySelectorAll('.time')
-// console.log(times);
-// times.forEach(time=>time.addEventListener('click', createEvent))
-
-// function createEvent(e){
-//     const clickedTime = e.currentTarget;
-//     // clickedTime.classList.add('selected-time')
-//     const dayOfAppointment = clickedTime.parentElement;
-//     // console.log(dayOfAppointment);
-//     const selectedTime = dayOfAppointment.querySelectorAll('.time');
-//     // console.log(selectedTime)
-//     var appointmentDuration = document.querySelector('.duration').innerText
-//     console.log(appointmentDuration);
-//     appointmentData.push(appointmentDuration);
-//     console.log(appointmentData)
-// }
 
 const dayOfWeekNo = document.querySelectorAll('.day-of-week-no')
 
@@ -160,9 +148,10 @@ function showAppointmentTime(event){
     timeToSelect.forEach(eachTime=>{
         eachTime.addEventListener('click', createTime);
     })
+    
 }
 
-let clickCounter = 0; //checking how many times an element has been clicked
+let clickCounter = 0; //for checking how many times an element has been clicked
 function createTime(e){
     clickCounter++;
     const startingTime = e.currentTarget;
@@ -207,13 +196,12 @@ function createTime(e){
 
     const sessionDuration = appointmentData[0];
     if(selectedHours.length>=sessionDuration){
-        alert('next-step');
-        confirmAppointmentAndProceedToMpesa();
+        
+        confirmAppointmentAndProceed();
         console.log(appointmentData)
     }
     else{
-        console.log('true');
-        console.log(selectedHours.length, sessionDuration)
+        // console.log(selectedHours.length, sessionDuration)
         alert('not enough time for selected session,Pease choose another starting time or another day');
         selectedHours.forEach(selectedHour=>selectedHour.classList.remove('selected-time'))
         appointmentData.splice(1,clickCounter); /*using the click counter on the
@@ -221,12 +209,38 @@ function createTime(e){
         // console.log(appointmentData)
     }
 
-    // console.log(appointmentData[0])
-    // console.log(appointmentData)
-    // console.log(appointmentData[1][0].innerText)
-    console.log(clickCounter);
-
 }
-function confirmAppointmentAndProceedToMpesa(){
+
+function confirmAppointmentAndProceed(){
+    // initialising below variables after executing the createAppointmentsForMonth() function
+    const allhoursforAllDays = document.querySelectorAll('.time');
+    const javascriptGeneratedDaysContainers = document.querySelectorAll('.days-container')
+
     confirmationDetailsContainer.style.transform = "scale(1)"
+
+    cancelAppointment.addEventListener('click', ()=>{
+        window.location.reload();
+    // confirmationDetailsContainer.style.transform = "scale(1,0)"
+
+    // appointmentData = [];
+
+    // removing selected-time class from all selected hours (resetting all back to default)
+    // appointments.forEach(appointment=>appointment.style.display = 'block'); 
+
+    // dropDownIcons.forEach(icon=>icon.style.transform = 'scale(1,0)') 
+
+    // allhoursforAllDays.forEach(hour=>hour.classList.remove('selected-time'));
+
+    // javascriptGeneratedDaysContainers.forEach(times=>times.style.display="none")
+        // console.log(appointmentData);
+
+    })
+
+    proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase)
+}
+
+function addAppointmentDataToFirebase(){
+    console.log("added to firestore")
+    confirmationDetailsContainer.style.transform = "scale(1,0)"
+
 }
