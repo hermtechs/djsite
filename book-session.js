@@ -234,16 +234,17 @@ function confirmAppointmentAndProceed(){
     const confirmedDurationElement = document.querySelector('.confirmed-duration')
     const confirmedStartingTimeElement = document.querySelector('.starting-time');
     const confirmedEndingTimeElement = document.querySelector('.ending-time');
-    confirmationDetailsContainer.style.transform = "scale(1)"
 
     confirmedDateElement.innerText=`${weekDays[dayOfWeek]}, ${appointmentData[2]}`;
     confirmedDurationElement.innerText = appointmentData[0]
     confirmedStartingTimeElement.innerText = appointmentData[1][0].innerText
     confirmedEndingTimeElement.innerText = appointmentData[1][appointmentData[1].length-1].innerText
 
+    confirmationDetailsContainer.style.transform = "scale(1)"
+
     // if user decides to confirm appointment schedule
     // proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,confirmedEndingTime,confirmedDuration))
-    addAppointmentDataToFirebase();
+    proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase);
     //incase user decides to cancel without confirming
     cancelAppointment.addEventListener('click', ()=>{
         // resetting everything by refreshing the page
