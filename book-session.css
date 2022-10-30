@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,300&display=swap");
 :root {
-  --background-clr-nav: #1717c5;
+  --background-clr-nav: #0335dc;
 }
 html{
   scroll-behavior: smooth;
@@ -145,7 +145,7 @@ nav a:hover:after{
  }
 }
 .book-now-btn{
-    border: 2px solid #4c1ff0;
+    border: 2px solid #b5bef9;
     display: inline-block;
     padding: 0.2rem 1rem;
 }
@@ -185,18 +185,18 @@ nav a:hover:after{
     padding: 1rem 2rem;
     line-height: 1.5;
     margin-top: 1rem;
-    transition: background 250ms ease-in;
+    transition: 250ms ease-in;
     position: relative;
     z-index: 10;
     cursor: pointer;
     display: block;
 }
 .appointment:hover{
-  background: #e8e0f4;
+  background: #eee;
 }
 .date-container{
   /* background: #4365fa; */
-  color: #1717c5;
+  color: #045DE9;
   font-weight: 900;
   padding: 0.2rem;
   cursor: pointer;
@@ -217,7 +217,7 @@ nav a:hover:after{
   right: 0;
   margin-top: -0.4rem;
   padding:0rem 1rem 1rem 1.5rem;
-  color: #1717c5
+  color: #045DE9
 }
 .appointments-container .appointment #show{
   display: block;
@@ -237,7 +237,8 @@ nav a:hover:after{
   max-width: 6.8rem;
   border-radius: 0.5rem;
   padding: 0.65rem;
-  background: linear-gradient(to top, #ebdce7 0%, #a6c1ee 100%);
+  background: #eee;
+  /* background: linear-gradient(to top, #bbbaff 0%, #d6e4f9 100%); */
   margin: 0.5rem;
 }
 .days-container span{
@@ -255,7 +256,7 @@ nav a:hover:after{
   margin-right: 4rem;
 }
 .btns-container>*{
-  background: #135b9d;
+  background: #4850eb;
   color: rgb(245, 240, 240);
   padding: 0.2rem 0.6rem;
   border-radius: 0.2em;
@@ -264,9 +265,65 @@ nav a:hover:after{
   font-size: 0.8rem;
 }
 .selected-time{
-  background: #b2f8d0;
+  background: #c7ffdd;
   border-radius: 0.1em;
 }
 .choose-date{
   display: none;
+}
+.confirmation-details{
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 250ms ease-in-out;
+  transform-origin: bottom right; 
+  transform: scale(1,0);
+}
+.details{
+  background: #045DE9;;
+  padding: 1.5rem;
+  /* opacity: 0.98; */
+}
+.details>*{
+  margin: 1rem;
+}
+.details span{
+  padding-left: 1rem;
+  color: #9cf4b2;
+  /* font-weight: 400; */
+}
+.details button{
+  padding: 0.2rem 1rem;
+  outline: none;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  border-radius: 0.2rem;
+  transition: 200ms ease-in;
+  font-size: 1.01rem;
+}
+.details .cancel{
+  background: #fca8a8;
+}
+.details .cancel:hover{
+  background: #f47777;
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.details .proceed{
+  background: #0ebf14;
+}
+.details .proceed:hover{
+  transform: scale(1.04);
+  opacity: 1;
 }

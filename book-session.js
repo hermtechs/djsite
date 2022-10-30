@@ -2,6 +2,7 @@ const appointments = document.querySelectorAll('.appointment');
 const dropDownIcons = document.querySelectorAll('.dropdown-icon');
 const daysContainer = document.querySelector('.days-container');
 const chooseDate = document.querySelector('.choose-date')
+const confirmationDetailsContainer = document.querySelector('.confirmation-details')
 // const dateContainer = document.querySelectorAll('.date-container');
 // console.log(dateContainer)
 appointments.forEach(appointment=>{
@@ -161,8 +162,9 @@ function showAppointmentTime(event){
     })
 }
 
+let clickCounter = 0; //checking how many times an element has been clicked
 function createTime(e){
-
+    clickCounter++;
     const startingTime = e.currentTarget;
     // startingTime.parentElement.parentElement.style.display = "none"
     // console.log(startingTime.parentElement.parentElement)
@@ -195,12 +197,36 @@ function createTime(e){
         if(fullDateforEachSelectedTime<=newTime&&fullDateforEachSelectedTime>=fullDateBasedOnTimeClicked){
             // console.log(fullDateOfSelectedTime)
             eachTime.classList.add('selected-time');
-        }
+
     }
+}
     const selectedHours =[...document.querySelectorAll('.selected-time')]
     appointmentData.push(selectedHours);
     appointmentData.push(dateOfSelectedTime);
-    console.log(appointmentData[0])
-    // const selectedTime = [, dateOfSelectedTime];
-    // console.log(selectedTime)
+
+
+    const sessionDuration = appointmentData[0];
+    if(selectedHours.length>=sessionDuration){
+        alert('next-step');
+        confirmAppointmentAndProceedToMpesa();
+        console.log(appointmentData)
+    }
+    else{
+        console.log('true');
+        console.log(selectedHours.length, sessionDuration)
+        alert('not enough time for selected session,Pease choose another starting time or another day');
+        selectedHours.forEach(selectedHour=>selectedHour.classList.remove('selected-time'))
+        appointmentData.splice(1,clickCounter); /*using the click counter on the
+         splice method is to make sure we will always remove selectedHours from the array even if their index keep changing every click*/
+        // console.log(appointmentData)
+    }
+
+    // console.log(appointmentData[0])
+    // console.log(appointmentData)
+    // console.log(appointmentData[1][0].innerText)
+    console.log(clickCounter);
+
+}
+function confirmAppointmentAndProceedToMpesa(){
+    confirmationDetailsContainer.style.transform = "scale(1)"
 }
