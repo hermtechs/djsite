@@ -3,6 +3,8 @@ const dropDownIcons = document.querySelectorAll('.dropdown-icon');
 const daysContainer = document.querySelector('.days-container');
 const chooseDate = document.querySelector('.choose-date')
 const confirmationDetailsContainer = document.querySelector('.confirmation-details')
+const details =document.querySelector('.details')
+console.log(details);
 const cancelAppointment = document.querySelector('.cancel');
 const proceedWithAppointment =document.querySelector('.proceed');
 
@@ -20,6 +22,9 @@ window.onload = initializeApp();
           };
     firebase.initializeApp(firebaseConfig);
     }
+    const database = firebase.firestore();
+    const appointmentDataCollection = database.collection("appointmentDataCollection");
+    // console.log(database)
 // firebase code ***    
 
 
@@ -235,16 +240,24 @@ function confirmAppointmentAndProceed(){
     const confirmedStartingTimeElement = document.querySelector('.starting-time');
     const confirmedEndingTimeElement = document.querySelector('.ending-time');
 
-    confirmedDateElement.innerText=`${weekDays[dayOfWeek]}, ${appointmentData[2]}`;
-    confirmedDurationElement.innerText = appointmentData[0]
-    confirmedStartingTimeElement.innerText = appointmentData[1][0].innerText
-    confirmedEndingTimeElement.innerText = appointmentData[1][appointmentData[1].length-1].innerText
+    const confirmedDate = `${weekDays[dayOfWeek]}, ${appointmentData[2]}`
+    const confirmedDuration = appointmentData[0]
+    const confirmedStartingTime = appointmentData[1][0].innerText
+    const confirmedEndingTime = appointmentData[1][appointmentData[1].length-1].innerText
+
+    confirmedDateElement.innerText=confirmedDate;
+    confirmedDurationElement.innerText = confirmedDuration;
+    confirmedStartingTimeElement.innerText = confirmedStartingTime;
+    confirmedEndingTimeElement.innerText =confirmedEndingTime;
 
     confirmationDetailsContainer.style.transform = "scale(1)"
 
     // if user decides to confirm appointment schedule
-    // proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,confirmedEndingTime,confirmedDuration))
-    proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase);
+    proceedWithAppointment.addEventListener('click', ()=>{
+        addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
+            confirmedEndingTime,confirmedDuration)
+    });
+    // proceedWithAppointment.addEventListener('click', addAppointmentDataToFirebase);
     //incase user decides to cancel without confirming
     cancelAppointment.addEventListener('click', ()=>{
         // resetting everything by refreshing the page
@@ -252,8 +265,26 @@ function confirmAppointmentAndProceed(){
     })
 }
 
-function addAppointmentDataToFirebase(){
+function addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
+    confirmedEndingTime,confirmedDuration){
     console.log("added to firestore")
-    confirmationDetailsContainer.style.transform = "scale(1,0)"
+    console.log(confirmedDate)
+
+    appointmentDataCollection.add(
+        {
+            appointmentDate:confirmedDate,
+            appointmentStartTime:confirmedStartingTime,
+            appointmentEndTime:confirmedEndingTime,
+            appointmentDuration:confirmedDuration,
+
+        }
+    )
+    details.innerHTML = `<h4>Your request has been submited, we will get 
+                                back to you shortly ! <i class="fa-solid fa-circle-xmark"></i></h4>
+                                `   
+    setTimeout(()=>{
+     window.location.reload();
+    },2500)    
+
 
 }
