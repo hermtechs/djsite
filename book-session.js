@@ -270,17 +270,15 @@ function addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
     console.log("added to firestore")
     console.log(confirmedDate)
 
-    appointmentDataCollection.add(
-        {
+    appointmentDataCollection.add({
             appointmentDate:confirmedDate,
             appointmentStartTime:confirmedStartingTime,
             appointmentEndTime:confirmedEndingTime,
             appointmentDuration:confirmedDuration,
 
-        }
-    )
+        })
     details.innerHTML = `<h4>Your request has been submited, we will get 
-                                back to you shortly ! <i class="fa-solid fa-circle-xmark"></i></h4>
+                                back to you shortly ! <span><i class="fa-solid fa-circle-xmark"></i><span></h4>
                                 `   
     setTimeout(()=>{
      window.location.reload();
