@@ -282,7 +282,5 @@ function addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
                                 `   
     setTimeout(()=>{
      window.location.reload();
-    },2500)    
-
-
+    },2000)    
 }
