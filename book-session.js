@@ -227,7 +227,7 @@ function createTime(e){
         alert('not enough time for selected session,Pease choose another starting time or another day');
         selectedHours.forEach(selectedHour=>selectedHour.classList.remove('selected-time'))
         appointmentData.splice(1,clickCounter); /*using the click counter on the
-         splice method is to make sure we will always remove selectedHours from the array even if their index keep changing every click*/
+         splice method is to make sure we will always remove selectedHours from the array even if their index keeps changing every click*/
         // console.log(appointmentData)
     }
 

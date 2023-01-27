@@ -297,7 +297,7 @@ nav a:hover:after{
   justify-content: center;
   transition: 250ms ease-in-out;
   transform-origin: bottom right; 
-  transform: scale(1,0);
+  /* transform: scale(1,0); */
 }
 .details{
   background: #045DE9;
@@ -338,4 +338,123 @@ nav a:hover:after{
 .details .proceed:hover{
   transform: scale(1.04);
   opacity: 1;
+}
+
+
+/* INPUT FORM BEFORE SUBMITING DETAILS */
+.form {
+  background-color: #0335dc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}
+
+.form .title {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.form .subtitle {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+ .form .input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.form .ic1 {
+  margin-top: 40px;
+}
+
+.form .ic2 {
+  margin-top: 30px;
+}
+
+.form .input {
+  background-color: #d7d7d9;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.form .cut {
+  background-color: #0335dc;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.form .cut-short {
+  width: 50px;
+}
+
+.form .input:focus ~ .cut,
+.form .input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.form .placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.form .input:focus ~ .placeholder,
+.form .input:not(:placeholder-shown) ~ .form .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.form .input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.form .input:focus ~ .placeholder {
+  color: #39e22a;
+}
+
+.form .submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.form .submit:active {
+  background-color: #06b;
 }
