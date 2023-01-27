@@ -286,69 +286,49 @@ nav a:hover:after{
 .confirmation-details{
   background: rgba(0, 0, 0, 0.2);
   position: fixed;
-  top: 0;
+  top: 3.7rem;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 900;
+  z-index: 2000;
+  overflow-y: scroll;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 250ms ease-in-out;
   transform-origin: bottom right; 
-  /* transform: scale(1,0); */
+  min-width: 330px;
+  transform: scale(1,0);
 }
 .details{
   background: #045DE9;
   padding: 1.5rem;
   /* opacity: 0.98; */
 }
-.details>*{
-  margin: 1rem;
-}
+
 .details span{
   padding-left: 1rem;
   color: #9cf4b2;
   /* font-weight: 400; */
 }
-.details button{
-  padding: 0.2rem 1rem;
-  outline: none;
+.confirm-data-container{
+  background: rgb(21, 54, 244);
+  padding: 1rem;
   margin-top: 0.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
-  border: none;
-  color: #fff;
-  border-radius: 0.2rem;
-  transition: 200ms ease-in;
-  font-size: 1.01rem;
+  border-radius: 17px;
 }
-.details .cancel{
-  background: #fca8a8;
-}
-.details .cancel:hover{
-  background: #f47777;
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-.details .proceed{
-  background: #0ebf14;
-}
-.details .proceed:hover{
-  transform: scale(1.04);
-  opacity: 1;
-}
-
 
 /* INPUT FORM BEFORE SUBMITING DETAILS */
 .form {
   background-color: #0335dc;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 500px;
+  /* height: 500px; */
   padding: 20px;
-  width: 320px;
+  min-width: 320px;
+  width: 80%;
+  max-width: 500px;
 }
 
 .form .title {
@@ -386,7 +366,7 @@ nav a:hover:after{
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
-  color: #eee;
+  color: #10053f;
   font-size: 18px;
   height: 100%;
   outline: 0;
@@ -416,7 +396,7 @@ nav a:hover:after{
 }
 
 .form .placeholder {
-  color: #65657b;
+  color: #0a043f;
   font-family: sans-serif;
   left: 20px;
   line-height: 14px;
@@ -433,15 +413,15 @@ nav a:hover:after{
 }
 
 .form .input:not(:placeholder-shown) ~ .placeholder {
-  color: #808097;
+  color: #2020e6;
 }
 
 .form .input:focus ~ .placeholder {
-  color: #39e22a;
+  color: #cccbce;
 }
 
 .form .submit {
-  background-color: #08d;
+  background-color: rgb(12, 21, 206);
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -453,8 +433,9 @@ nav a:hover:after{
   outline: 0;
   text-align: center;
   width: 100%;
+  color: #bbe6c5;
 }
 
 .form .submit:active {
-  background-color: #06b;
+  background-color: rgb(21, 54, 244);
 }

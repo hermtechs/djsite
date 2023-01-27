@@ -112,12 +112,11 @@
      </div>
     </div>
      <div class="confirmation-details"> 
-     <div class="details">
+     <!--  <div class="details">
       <h4 class="steps"> <span class="step-no">3</span> Confirm appointment</h4>
-      <h4>You're booking a session with Dj Navv</h4>
        <p> ON: <span class="confirmed-date">date</span></p>
          <p>FOR: <span class="confirmed-duration">dur </span> hrs </p>
-         <p>FROM: <span class="starting-time">10:00AM</span> to <span class="ending-time">1:00PM</span></p>
+         <p>FROM: <span class="starting-time">10:00AM</span> to <span class="ending-time">1:00PM</span></p> -->
 
          <!-- <div class="appointment-confirmation-btns">
           <button class="cancel">cancel</button>
@@ -125,24 +124,38 @@
 
         </div> -->
         <div class="form">
-          <div class="title">PAYMENT</div>
-          <div class="subtitle">Pay With Mpesa</div>
+          <div class="title">PAY WITH MPESA</div>
+
+         <div class="title" class="steps"> <span class="step-no">3</span> CONFIRM APPOINTMENT</div>
+         <div class="confirm-data-container">
+         <h4>You're booking a session</h4>
+         <div class="subtitle">DATE: <span class="confirmed-date"> </span> </div>
+          <div class="subtitle">START TIME: <span class="starting-time"> </span> </div>
+          <div class="subtitle">END TIME: <span class="ending-time"> </span> </div>
+          <div class="subtitle">DURATION: <span class="confirmed-duration"> </span> hrs </div>
+        </div>
           <div class="input-container ic1">
             <input id="firstname" class="input" type="text" placeholder=" " />
             <div class="cut"></div>
-            <label for="firstname" class="placeholder">First name</label>
+            <label for="firstname" class="placeholder">First name*</label>
           </div>
           <div class="input-container ic2">
             <input id="lastname" class="input" type="text" placeholder=" " />
             <div class="cut"></div>
-            <label for="lastname" class="placeholder">Last name</label>
+            <label for="lastname" class="placeholder">Last name*</label>
+          </div>
+          
+          <div class="input-container ic2">
+            <input id="phone-number" class="input" type="text" placeholder=" " required />
+            <div class="cut"></div>
+            <label for="phone-number" class="placeholder">Phone (mpesa)*</label>
           </div>
           <div class="input-container ic2">
             <input id="email" class="input" type="text" placeholder=" " />
             <div class="cut cut-short"></div>
-            <label for="email" class="placeholder">Email</>
+            <label for="email" class="placeholder">Email* </label>
           </div>
-          <button type="text" class="submit">submit</button>
+          <button type="text" class="submit proceed">Pay Kshs: <span class="amount">1000</span> </button>
         </div>
       </div>
      </div>
