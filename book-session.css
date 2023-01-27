@@ -306,7 +306,7 @@ nav a:hover:after{
   background: #045DE9;
   padding: 1.5rem;
   min-width: 320px;
-  width: 90%;
+  /* width: 90%; */
 
   /* opacity: 0.98; */
 }
@@ -332,9 +332,10 @@ nav a:hover:after{
   border-radius: 20px;
   box-sizing: border-box;
   /* height: 500px; */
+  margin-top: 7rem;
   padding: 20px;
   min-width: 320px;
-  width: 80%;
+  width: 90%;
   max-width: 500px;
 }
 
