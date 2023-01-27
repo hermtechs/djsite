@@ -251,7 +251,8 @@ function confirmAppointmentAndProceed(){
     confirmedEndingTimeElement.innerText =confirmedEndingTime;
 
     confirmationDetailsContainer.style.transform = "scale(1)"
-
+    pageScroll();
+        
     // if user decides to confirm appointment schedule
     proceedWithAppointment.addEventListener('click', ()=>{
         addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
@@ -283,4 +284,8 @@ function addAppointmentDataToFirebase(confirmedDate,confirmedStartingTime,
     setTimeout(()=>{
      window.location.reload();
     },2000)    
+}
+function pageScroll() {
+    window.scrollBy(0,20);
+    scrolldelay = setTimeout(pageScroll,5);
 }

@@ -300,7 +300,7 @@ nav a:hover:after{
   transition: 250ms ease-in-out;
   transform-origin: bottom right; 
   min-width: 330px;
-  /* transform: scale(1,0); */
+  transform: scale(1,0);
 }
 .details{
   background: #045DE9;
