@@ -246,7 +246,7 @@ function confirmAppointmentAndProceed(){
     const confirmedEndingTime = appointmentData[1][appointmentData[1].length-1].innerText
 
     confirmedDateElement.innerText=confirmedDate;
-    confirmedDurationElement.innerText = confirmedDuration;
+    confirmedDurationElement.innerText = confirmedDuration + " hrs";
     confirmedStartingTimeElement.innerText = confirmedStartingTime;
     confirmedEndingTimeElement.innerText =confirmedEndingTime;
 
