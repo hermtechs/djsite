@@ -440,11 +440,11 @@ nav a:hover:after{
 }
 
 .form .submit {
-  background-color: rgb(12, 21, 206);
+  background-color: #1cd249;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
-  color: #eee;
+  color: #fff;
   cursor: pointer;
   font-size: 18px;
   height: 50px;
@@ -452,9 +452,8 @@ nav a:hover:after{
   outline: 0;
   text-align: center;
   width: 100%;
-  color: #bbe6c5;
 }
 
 .form .submit:active {
-  background-color: rgb(21, 54, 244);
+  background-color: rgb(106, 234, 123);
 }
